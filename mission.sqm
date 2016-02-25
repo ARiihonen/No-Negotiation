@@ -8,7 +8,7 @@ class EditorData
 	toggles=9;
 	class ItemIDProvider
 	{
-		nextID=2543;
+		nextID=2608;
 	};
 	class MarkerIDProvider
 	{
@@ -16,14 +16,14 @@ class EditorData
 	};
 	class LayerIndexProvider
 	{
-		nextID=317;
+		nextID=381;
 	};
 	class Camera
 	{
-		pos[]={9801.0723,248.35367,20632.158};
-		dir[]={-0.63566214,-0.51007396,0.5795939};
-		up[]={-0.3769421,0.86012316,0.34369323};
-		aside[]={0.6738196,-3.1286618e-007,0.73900855};
+		pos[]={9678.4023,206.42404,20666.723};
+		dir[]={-0.50882328,-0.55787969,0.65579784};
+		up[]={-0.34200752,0.82989895,0.440797};
+		aside[]={0.79015195,-1.2745149e-006,0.61307067};
 	};
 };
 binarizationWanted=0;
@@ -182,7 +182,7 @@ class Mission
 {
 	class Intel
 	{
-		briefingName="CO06-24 - No Negotiation v1";
+		briefingName="CO06-24 - No Negotiation";
 		overviewText="Altian special forces raid a small airfield, where terrorists have taken hostages.";
 		resistanceWest=0;
 		timeOfChanges=3600;
@@ -7304,23 +7304,6 @@ class Mission
 							dataType="Object";
 							class PositionInfo
 							{
-								position[]={8976.1621,17.851427,21309.434};
-							};
-							side="West";
-							flags=1;
-							class Attributes
-							{
-								init="if (isServer) then { patrol_groups set [count patrol_groups, group this]; };";
-								presenceCondition="0 in patrols";
-							};
-							id=1648;
-							type="B_G_Soldier_AR_F";
-						};
-						class Item3
-						{
-							dataType="Object";
-							class PositionInfo
-							{
 								position[]={8970.918,18.19746,21310.414};
 							};
 							side="West";
@@ -7330,6 +7313,22 @@ class Mission
 								presenceCondition="0 in patrols && !low_players";
 							};
 							id=1766;
+							type="B_G_Soldier_F";
+						};
+						class Item3
+						{
+							dataType="Object";
+							class PositionInfo
+							{
+								position[]={8976.1621,17.851427,21309.434};
+							};
+							side="West";
+							class Attributes
+							{
+								init="if (isServer) then { patrol_groups set [count patrol_groups, group this]; };";
+								presenceCondition="0 in patrols";
+							};
+							id=2543;
 							type="B_G_Soldier_F";
 						};
 						class Item4
@@ -7420,23 +7419,6 @@ class Mission
 							dataType="Object";
 							class PositionInfo
 							{
-								position[]={8981.2686,14.341892,21495.586};
-							};
-							side="West";
-							flags=1;
-							class Attributes
-							{
-								init="if (isServer) then { patrol_groups set [count patrol_groups, group this]; };";
-								presenceCondition="1 in patrols";
-							};
-							id=1654;
-							type="B_G_Soldier_AR_F";
-						};
-						class Item3
-						{
-							dataType="Object";
-							class PositionInfo
-							{
 								position[]={8976.0244,14.350777,21496.566};
 							};
 							side="West";
@@ -7446,6 +7428,22 @@ class Mission
 								presenceCondition="1 in patrols && !low_players";
 							};
 							id=1765;
+							type="B_G_Soldier_F";
+						};
+						class Item3
+						{
+							dataType="Object";
+							class PositionInfo
+							{
+								position[]={8981.2686,14.341892,21495.586};
+							};
+							side="West";
+							class Attributes
+							{
+								init="if (isServer) then { patrol_groups set [count patrol_groups, group this]; };";
+								presenceCondition="1 in patrols";
+							};
+							id=2544;
 							type="B_G_Soldier_F";
 						};
 						class Item4
@@ -7558,23 +7556,6 @@ class Mission
 							dataType="Object";
 							class PositionInfo
 							{
-								position[]={9109.1006,11.068409,21695.119};
-							};
-							side="West";
-							flags=1;
-							class Attributes
-							{
-								init="if (isServer) then { patrol_groups set [count patrol_groups, group this]; };";
-								presenceCondition="2 in patrols";
-							};
-							id=1659;
-							type="B_G_Soldier_AR_F";
-						};
-						class Item3
-						{
-							dataType="Object";
-							class PositionInfo
-							{
 								position[]={9103.8564,11.077293,21696.1};
 							};
 							side="West";
@@ -7584,6 +7565,22 @@ class Mission
 								presenceCondition="2 in patrols && !low_players";
 							};
 							id=1764;
+							type="B_G_Soldier_F";
+						};
+						class Item3
+						{
+							dataType="Object";
+							class PositionInfo
+							{
+								position[]={9109.1006,11.068409,21695.119};
+							};
+							side="West";
+							class Attributes
+							{
+								init="if (isServer) then { patrol_groups set [count patrol_groups, group this]; };";
+								presenceCondition="2 in patrols";
+							};
+							id=2545;
 							type="B_G_Soldier_F";
 						};
 						class Item4
@@ -7686,23 +7683,6 @@ class Mission
 							dataType="Object";
 							class PositionInfo
 							{
-								position[]={9228.1992,10.117649,21877.361};
-							};
-							side="West";
-							flags=1;
-							class Attributes
-							{
-								init="if (isServer) then { patrol_groups set [count patrol_groups, group this]; };";
-								presenceCondition="3 in patrols";
-							};
-							id=1664;
-							type="B_G_Soldier_AR_F";
-						};
-						class Item3
-						{
-							dataType="Object";
-							class PositionInfo
-							{
 								position[]={9222.9551,10.126534,21878.342};
 							};
 							side="West";
@@ -7712,6 +7692,22 @@ class Mission
 								presenceCondition="3 in patrols && !low_players";
 							};
 							id=1763;
+							type="B_G_Soldier_F";
+						};
+						class Item3
+						{
+							dataType="Object";
+							class PositionInfo
+							{
+								position[]={9228.1992,10.117649,21877.361};
+							};
+							side="West";
+							class Attributes
+							{
+								init="if (isServer) then { patrol_groups set [count patrol_groups, group this]; };";
+								presenceCondition="3 in patrols";
+							};
+							id=2546;
 							type="B_G_Soldier_F";
 						};
 						class Item4
@@ -7825,23 +7821,6 @@ class Mission
 							dataType="Object";
 							class PositionInfo
 							{
-								position[]={9328.084,12.204456,21766.686};
-							};
-							side="West";
-							flags=1;
-							class Attributes
-							{
-								init="if (isServer) then { patrol_groups set [count patrol_groups, group this]; };";
-								presenceCondition="4 in patrols";
-							};
-							id=1669;
-							type="B_G_Soldier_AR_F";
-						};
-						class Item3
-						{
-							dataType="Object";
-							class PositionInfo
-							{
 								position[]={9322.8398,12.213341,21767.666};
 							};
 							side="West";
@@ -7851,6 +7830,22 @@ class Mission
 								presenceCondition="4 in patrols && !low_players";
 							};
 							id=1762;
+							type="B_G_Soldier_F";
+						};
+						class Item3
+						{
+							dataType="Object";
+							class PositionInfo
+							{
+								position[]={9328.084,12.204456,21766.686};
+							};
+							side="West";
+							class Attributes
+							{
+								init="if (isServer) then { patrol_groups set [count patrol_groups, group this]; };";
+								presenceCondition="4 in patrols";
+							};
+							id=2547;
 							type="B_G_Soldier_F";
 						};
 						class Item4
@@ -7996,23 +7991,6 @@ class Mission
 							dataType="Object";
 							class PositionInfo
 							{
-								position[]={9468.5264,14.880909,21872.686};
-							};
-							side="West";
-							flags=1;
-							class Attributes
-							{
-								init="if (isServer) then { patrol_groups set [count patrol_groups, group this]; };";
-								presenceCondition="5 in patrols";
-							};
-							id=1674;
-							type="B_G_Soldier_AR_F";
-						};
-						class Item3
-						{
-							dataType="Object";
-							class PositionInfo
-							{
 								position[]={9463.2822,14.889793,21873.666};
 							};
 							side="West";
@@ -8022,6 +8000,22 @@ class Mission
 								presenceCondition="5 in patrols && !low_players";
 							};
 							id=1761;
+							type="B_G_Soldier_F";
+						};
+						class Item3
+						{
+							dataType="Object";
+							class PositionInfo
+							{
+								position[]={9468.5264,14.880909,21872.686};
+							};
+							side="West";
+							class Attributes
+							{
+								init="if (isServer) then { patrol_groups set [count patrol_groups, group this]; };";
+								presenceCondition="5 in patrols";
+							};
+							id=2548;
 							type="B_G_Soldier_F";
 						};
 						class Item4
@@ -8157,23 +8151,6 @@ class Mission
 							dataType="Object";
 							class PositionInfo
 							{
-								position[]={9498.665,19.340382,21513.225};
-							};
-							side="West";
-							flags=1;
-							class Attributes
-							{
-								init="if (isServer) then { patrol_groups set [count patrol_groups, group this]; };";
-								presenceCondition="6 in patrols";
-							};
-							id=1679;
-							type="B_G_Soldier_AR_F";
-						};
-						class Item3
-						{
-							dataType="Object";
-							class PositionInfo
-							{
 								position[]={9493.4209,19.349266,21514.205};
 							};
 							side="West";
@@ -8183,6 +8160,22 @@ class Mission
 								presenceCondition="6 in patrols && !low_players";
 							};
 							id=1760;
+							type="B_G_Soldier_F";
+						};
+						class Item3
+						{
+							dataType="Object";
+							class PositionInfo
+							{
+								position[]={9498.665,19.340382,21513.225};
+							};
+							side="West";
+							class Attributes
+							{
+								init="if (isServer) then { patrol_groups set [count patrol_groups, group this]; };";
+								presenceCondition="6 in patrols";
+							};
+							id=2549;
 							type="B_G_Soldier_F";
 						};
 						class Item4
@@ -8349,23 +8342,6 @@ class Mission
 							dataType="Object";
 							class PositionInfo
 							{
-								position[]={9377.0078,44.887077,21196.869};
-							};
-							side="West";
-							flags=1;
-							class Attributes
-							{
-								init="if (isServer) then { patrol_groups set [count patrol_groups, group this]; };";
-								presenceCondition="7 in patrols";
-							};
-							id=1684;
-							type="B_G_Soldier_AR_F";
-						};
-						class Item3
-						{
-							dataType="Object";
-							class PositionInfo
-							{
 								position[]={9371.7637,44.320602,21197.85};
 								angles[]={0.10362761,0,0.05461248};
 							};
@@ -8376,6 +8352,22 @@ class Mission
 								presenceCondition="7 in patrols && !low_players";
 							};
 							id=1759;
+							type="B_G_Soldier_F";
+						};
+						class Item3
+						{
+							dataType="Object";
+							class PositionInfo
+							{
+								position[]={9377.0078,44.887077,21196.869};
+							};
+							side="West";
+							class Attributes
+							{
+								init="if (isServer) then { patrol_groups set [count patrol_groups, group this]; };";
+								presenceCondition="7 in patrols";
+							};
+							id=2550;
 							type="B_G_Soldier_F";
 						};
 						class Item4
@@ -8501,23 +8493,6 @@ class Mission
 							dataType="Object";
 							class PositionInfo
 							{
-								position[]={9016.04,14.035427,21080.354};
-							};
-							side="West";
-							flags=1;
-							class Attributes
-							{
-								init="if (isServer) then { patrol_groups set [count patrol_groups, group this]; };";
-								presenceCondition="8 in patrols";
-							};
-							id=1689;
-							type="B_G_Soldier_AR_F";
-						};
-						class Item3
-						{
-							dataType="Object";
-							class PositionInfo
-							{
 								position[]={9010.7959,14.044212,21081.334};
 							};
 							side="West";
@@ -8527,6 +8502,22 @@ class Mission
 								presenceCondition="8 in patrols && !low_players";
 							};
 							id=1758;
+							type="B_G_Soldier_F";
+						};
+						class Item3
+						{
+							dataType="Object";
+							class PositionInfo
+							{
+								position[]={9016.04,14.035427,21080.354};
+							};
+							side="West";
+							class Attributes
+							{
+								init="if (isServer) then { patrol_groups set [count patrol_groups, group this]; };";
+								presenceCondition="8 in patrols";
+							};
+							id=2551;
 							type="B_G_Soldier_F";
 						};
 						class Item4
@@ -8653,23 +8644,6 @@ class Mission
 							dataType="Object";
 							class PositionInfo
 							{
-								position[]={8804.4717,43.116501,21537.332};
-							};
-							side="West";
-							flags=1;
-							class Attributes
-							{
-								init="if (isServer) then { patrol_groups set [count patrol_groups, group this]; };";
-								presenceCondition="9 in patrols";
-							};
-							id=1694;
-							type="B_G_Soldier_AR_F";
-						};
-						class Item3
-						{
-							dataType="Object";
-							class PositionInfo
-							{
 								position[]={8799.2275,43.125385,21538.313};
 							};
 							side="West";
@@ -8679,6 +8653,22 @@ class Mission
 								presenceCondition="9 in patrols && !low_players";
 							};
 							id=1757;
+							type="B_G_Soldier_F";
+						};
+						class Item3
+						{
+							dataType="Object";
+							class PositionInfo
+							{
+								position[]={8804.4717,43.116501,21537.332};
+							};
+							side="West";
+							class Attributes
+							{
+								init="if (isServer) then { patrol_groups set [count patrol_groups, group this]; };";
+								presenceCondition="9 in patrols";
+							};
+							id=2552;
 							type="B_G_Soldier_F";
 						};
 						class Item4
@@ -12277,7 +12267,7 @@ class Mission
 							dataType="Object";
 							class PositionInfo
 							{
-								position[]={9641.5156,136.35553,20737.908};
+								position[]={9642.5381,136.26595,20737.367};
 								angles[]={0,3.5133288,0};
 							};
 							side="Independent";
@@ -12296,7 +12286,7 @@ class Mission
 							dataType="Object";
 							class PositionInfo
 							{
-								position[]={9643.3047,136.15298,20738.414};
+								position[]={9644.3271,136.02502,20737.873};
 								angles[]={0,3.5803957,0};
 							};
 							side="Independent";

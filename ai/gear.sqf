@@ -143,13 +143,13 @@ if (side _this == west) then {
 			_primary_ammo_array = ["200Rnd_65x39_cased_Box", 4, "Backpack"];
 			
 			if ("hlcweapons_aks" call caran_checkMod) then {
-				_secondary_weapon = "hlc_rifle_rpk";
-				_secondary_ammo_array = ["hlc_75Rnd_762x39_m_rpk", 6, "Backpack"];
+				_primary_weapon = "hlc_rifle_rpk";
+				_primary_ammo_array = ["hlc_75Rnd_762x39_m_rpk", 6, "Backpack"];
 			};
 			
 			if ("rhs_" call caran_checkMod) then {
-				_secondary_weapon = "rhs_weap_pkp";
-				_secondary_ammo_array = ["rhs_100Rnd_762x54mmR", 4, "Backpack"];
+				_primary_weapon = "rhs_weap_pkp";
+				_primary_ammo_array = ["rhs_100Rnd_762x54mmR", 4, "Backpack"];
 			};
 			
 			_backpack = _specialist_backpacks select floor random count _specialist_backpacks;

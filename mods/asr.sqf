@@ -12,7 +12,7 @@ asr_ai3_main_debug = 0;    // Log extra debugging info to RPT, create debug mark
 
 //SERVERSIDE SETTINGS
 asr_ai3_main_setskills = 1;        // Override AI skills based on their unit type (faction, training etc.; 0 - disabled, 1 - enabled)
-asr_ai3_main_joinlast = 2;        // Groups left with only this number of units will merge with nearest group of the same faction (set to 0 to disable)
+asr_ai3_main_joinlast = 0;        // Groups left with only this number of units will merge with nearest group of the same faction (set to 0 to disable)
 asr_ai3_main_removegimps = 300;        // Units unable to walk for this time will separate from their group to prevent slowing it down (time in seconds, set 0 to disable)
 asr_ai3_main_rearm = 40;        // Enable basic AI rearming (resupply radius in meters; set to 0 to disable feature)
 asr_ai3_main_gunshothearing = 1.1;      // Gunshot hearing range coefficient (applied to shooter's weapon sound range; 0 will disable the feature)
@@ -54,12 +54,12 @@ asr_ai3_main_levels_units = [
 ];
 
 asr_ai3_main_factions = [
-	["BLU_F",4], //NATO
-	["BLU_G_F",5], //BLU FIA
-	["OPF_F",3], //CSAT
-	["OPF_G_F",5], //RED FIA
-	["IND_F",4], //AAF
-	["IND_G_F",5], //GRN FIA
+	["BLU_F",5], //NATO
+	["BLU_G_F",6], //BLU FIA
+	["OPF_F",5], //CSAT
+	["OPF_G_F",6], //RED FIA
+	["IND_F",5], //AAF
+	["IND_G_F",6], //GRN FIA
 	["CIV_F",7] //CIV
 ];
 

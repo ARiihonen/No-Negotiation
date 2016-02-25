@@ -92,7 +92,7 @@ _progress = [] spawn {
 			//Runs end.sqf on everyone. For varying mission end states, calculate the correct one here and send it as an argument for end.sqf
 			[[_endState,"end.sqf"], "BIS_fnc_execVM", true, false] spawn BIS_fnc_MP;
 		};
-		
+
 		//Sets _players_dead as true if nobody is still alive
 		_players_dead = true;
 		{
@@ -104,7 +104,7 @@ _progress = [] spawn {
 		if (!canMove helo1 || !canMove helo2) then {
 			_helo_down = true;
 		};
-		
+
 		//Checks whether all live players are in helicopters and sends the helicopets off if they are
 		if (!_players_boarded) then {
 			_board_check = true;

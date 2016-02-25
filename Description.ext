@@ -7,7 +7,7 @@ author="Sniper Party / Caranfin";
 //overviewPicture = "LoadScreen.paa"; This does not work on dedicated servers. Arma is bad.
 
 //Loading screen texts and picture for loading the mission
-OnLoadName = "CO06-24 - No Negotiation v1";
+OnLoadName = "CO06-24 - No Negotiation";
 OnLoadMission = "You do not negotiate with terrorists";
 loadscreen = "pictures\loadscreen.paa";
 
