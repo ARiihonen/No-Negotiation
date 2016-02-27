@@ -16,7 +16,7 @@ class EditorData
 	};
 	class LayerIndexProvider
 	{
-		nextID=381;
+		nextID=413;
 	};
 	class Camera
 	{
@@ -3911,7 +3911,7 @@ class Mission
 		{
 			dataType="Marker";
 			position[]={9637.3652,135.74316,20732.367};
-			name="respawn_guerrila";
+			name="respawn";
 			type="mil_start";
 			colorName="ColorWEST";
 			id=2072;

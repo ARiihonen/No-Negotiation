@@ -25,6 +25,9 @@ if ( "ace_" call caran_checkMod ) then {
 if (!isServer || (isServer && !isDedicated) ) then {
 	//put in briefings
 	briefing = [] execVM "briefing\briefing.sqf";
+	
+	//give player a respawn ticket to use at start
+	[player, 1, true] call BIS_fnc_respawnTickets;
 };
 
 execVM "logic\hcHandle.sqf";
