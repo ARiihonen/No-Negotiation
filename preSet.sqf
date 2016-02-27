@@ -83,6 +83,10 @@ if (isServer) then {
 	clear_call = false;
 	helos_called_back = false;
 	helos_committed = false;
+
+	publicVariable "assault_call";
+	publicVariable "clear_call";
+	publicVariable "helos_called_back";
 	
 	route_cleared = false;
 	area_cleared = false;
