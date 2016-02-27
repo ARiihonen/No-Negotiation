@@ -15,7 +15,10 @@ if (low_players) then {
 		}, 
 		nil, 
 		4, 
-		false
+		false,
+		true,
+		"",
+		"!assault_called"
 	];
 };
 
@@ -26,7 +29,10 @@ player addAction [
 	}, 
 	nil, 
 	4, 
-	false
+	false,
+	true,
+	"",
+	"!call_clear"
 ];
 
 player addAction [
@@ -36,5 +42,8 @@ player addAction [
 	}, 
 	nil, 
 	4, 
-	false
+	false,
+	true,
+	"",
+	"call_clear"
 ];
