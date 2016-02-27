@@ -72,6 +72,7 @@ if (!clear_call) then {
 	};
 	
 	clear_call = true;
+	publicVariable "clear_call";
 } else {
 	[[[thanatos, "heloComing"],"logic\radio.sqf"],"BIS_fnc_execVM",true,false] call BIS_fnc_MP;
 };
