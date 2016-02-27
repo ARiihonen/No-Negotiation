@@ -21,7 +21,6 @@ if (clear_call) then {
 		
 		clear_call = false;
 		helos_called_back = true;
-		publicVariable "helos_called_back";
 		publicVariable "clear_call";
 		
 	} else {
