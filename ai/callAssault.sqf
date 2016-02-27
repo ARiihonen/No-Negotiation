@@ -3,6 +3,7 @@ if (!assault_call) then {
 
 	call noneg_routeCheck;
 	assault_call = true;
+	publicVariable "assault_call";
 
 } else {
 	[[[thanatos, "assaultStarted"],"logic\radio.sqf"],"BIS_fnc_execVM",true,false] call BIS_fnc_MP;
