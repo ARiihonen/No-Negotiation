@@ -22,7 +22,7 @@ if (low_players) then {
 		false,
 		true,
 		"",
-		"!assault_called"
+		"!assault_call"
 	];
 };
 
@@ -36,7 +36,7 @@ player addAction [
 	false,
 	true,
 	"",
-	"!call_clear"
+	"!clear_call"
 ];
 
 player addAction [
@@ -49,5 +49,5 @@ player addAction [
 	false,
 	true,
 	"",
-	"call_clear"
+	"clear_call"
 ];

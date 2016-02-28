@@ -94,7 +94,7 @@ if (side _this == west) then {
 	];
 	
 	_items = [ ["FirstAidKit", 2, "Vest"] ];
-	_link_items = ["ItemMap", "ItemCompass", "ItemWatch", "ItemRadio"];
+	_link_items = ["ItemMap", "ItemCompass", "ItemWatch"];
 	
 	_primary_weapon = "arifle_TRG21_F";
 	_primary_ammo_array = ["30Rnd_556x45_Stanag", 10, "Vest"];
