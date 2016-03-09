@@ -15,7 +15,7 @@ _intelLow = if (low_players) then {
 };
 
 _missionLow = if (low_players) then {
-	"<br /><br /> To assist in the task, a small assault force is standing by to provide fire support as you clear the buildings. Clear the roadblocks <marker name = 'marker_block1'>here</marker>, <marker name = 'marker_block2'>here</marker>, and <marker name = 'marker_block3'>here</marker>, and call in the assault via your action menu once you're ready to begin the assault.";
+	"<br /><br /> To assist in the task, a small assault force is standing by to provide fire support as you clear the buildings. Clear the roadblocks <marker name = 'marker_block1'>here</marker>, <marker name = 'marker_block2'>here</marker>, and <marker name = 'marker_block3'>here</marker>, and call in the assault via your radio menu once you're ready to begin.";
 } else {
 	"";
 };

@@ -111,6 +111,12 @@ class CfgRadio
 		sound[] = {""};
 		title = "We heard you. Assault forces on the move.";
 	};
+	
+	class fuckOff {
+		name = "";
+		sound[] = {""};
+		title = "Go fuck yourself, dude.";
+	};
 };
 
 

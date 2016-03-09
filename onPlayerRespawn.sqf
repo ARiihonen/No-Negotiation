@@ -11,11 +11,13 @@ if ( "task_force_radio" call caran_checkMod || "acre_" call caran_checkMod ) the
 	call caran_playerRadioSetup;
 };
 
+/*
 if (low_players) then {
 	player addAction [
 		"<t color='#0000FF'>Roadblocks Cleared</t>", 
 		{
 			[[[],"ai\callAssault.sqf"],"BIS_fnc_execVM",false,false] call BIS_fnc_MP;
+			[[], "ai\callAssault.sqf"] remoteExec ["BIS_fnc_execVM", 2, false];
 		}, 
 		nil, 
 		4, 
@@ -51,3 +53,4 @@ player addAction [
 	"",
 	"clear_call"
 ];
+*/

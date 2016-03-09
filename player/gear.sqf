@@ -20,7 +20,7 @@ _item_weapons = [];
 //Medical. ACE if active, vanilla if not
 if ( "ace_" call caran_checkMod ) then {
 	{ _items set [count _items, [_x, 4, "Uniform"]]; } forEach ["ACE_morphine", "ACE_epinephrine"];
-	{ _items set [count _items, [_x, 8, "Uniform"]]; } forEach ["ACE_fieldDressing", "ACE_packingBandage"];
+	{ _items set [count _items, [_x, 8, "Uniform"]]; } forEach ["ACE_elasticBandage", "ACE_packingBandage"];
 	_items set [count _items, ["ACE_tourniquet", 1, "Uniform"]];
 } else {
 	_items set [count _items, ["FirstAidKit", 2, "Uniform"]];
@@ -90,9 +90,12 @@ switch _class do {
 		_backpack = "B_AssaultPack_dgtl";
 		
 		if ( "ace_" call caran_checkMod ) then {
-			_items set [ count _items, ["ACE_bloodIV", 5, "Backpack"]];
-			{ _items set [count _items, [_x, 10, "Backpack"]]; } forEach ["ACE_morphine", "ACE_epinephrine", "ACE_tourniquet"];
-			{ _items set [count _items, [_x, 20, "Backpack"]]; } forEach ["ACE_packingBandage", "ACE_fieldDressing"];
+			_items set [ count _items, ["ACE_personalAidKit", 1, "Backpack"]];
+			_items set [ count _items, ["ACE_bloodIV", 2, "Backpack"]];
+			_items set [ count _items, ["ACE_bloodIV_500", 4, "Backpack"]];
+			_items set [ count _items, ["ACE_tourniquet", 5, "Backpack"]];
+			{ _items set [count _items, [_x, 10, "Backpack"]]; } forEach ["ACE_morphine", "ACE_epinephrine", "ACE_atropine"];
+			{ _items set [count _items, [_x, 25, "Backpack"]]; } forEach ["ACE_packingBandage", "ACE_elasticBandage"];
 		} else {
 			_items set [ count _items, ["Medikit", 1, "Backpack"]];
 			_items set [ count _items, ["FirstAidKit", 10, "Backpack"]];

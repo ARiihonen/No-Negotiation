@@ -27,6 +27,19 @@ if (clear_call) then {
 		[[[thanatos, "heloLanding"],"logic\radio.sqf"],"BIS_fnc_execVM",true,false] call BIS_fnc_MP;
 	};
 	
+	missionNamespace setVariable ["nagging_asshole", 0];
+	
 } else {
-	[[[thanatos, "heloHolding"],"logic\radio.sqf"],"BIS_fnc_execVM",true,false] call BIS_fnc_MP;
+
+	_called_number = missionNamespace getVariable ["nagging_asshole", 0];
+	
+	if (_called_number > 2) then {
+		if (_called_number == 3) then {
+			[[[thanatos, "fuckOff"],"logic\radio.sqf"],"BIS_fnc_execVM",true,false] call BIS_fnc_MP;
+		};
+	} else {
+		[[[thanatos, "heloHolding"],"logic\radio.sqf"],"BIS_fnc_execVM",true,false] call BIS_fnc_MP;
+	};
+	
+	missionNamespace setVariable ["nagging_asshole", _called_number + 1];
 };
