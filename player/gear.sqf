@@ -27,7 +27,6 @@ if ( "ace_" call caran_checkMod ) then {
 };
 
 //ACRE Radio if active
-
 if ( "acre_" call caran_checkMod ) then {
 	_items set [count _items, ["ACRE_PRC343", 1, "Vest"]];
 	
