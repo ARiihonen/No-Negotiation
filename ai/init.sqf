@@ -13,11 +13,6 @@
 
 _vehicles = [helo1, helo2];
 
-if (low_players) then {
-	_vehicles = _vehicles + [assault1, assault2, assault3];
-	assault1 disableTIEquipment true;
-};
-
 {
 	_grp = group driver _x;
 	_units = [driver _x];
@@ -41,18 +36,6 @@ if (low_players) then {
 } forEach _vehicles;
 
 //Define mission-specific AI handling functions
-noneg_routeCheck = {
-	if (trigger_block1 getVariable ["clear", false] && trigger_block2 getVariable ["clear", false] && trigger_block3 getVariable ["clear", false]) then {
-		route_cleared = true;
-	} else {
-		route_cleared = false;
-	};
-	
-	if (!isServer) then {
-		publicVariableServer "route_cleared";
-	};
-};
-
 noneg_clearCheck = {
 	if (trigger_area getVariable ["clear", false]) then {
 		area_cleared = true;

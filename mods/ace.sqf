@@ -1,6 +1,6 @@
 _ace_settings = [ 
 	/*Medical settings*/ 
-	["ace_medical_level", 2], /*Medical level (2 = advanced, 1 = basic)*/
+	["ace_medical_level", 1], /*Medical level (2 = advanced, 1 = basic)*/
 	["ace_medical_medicSetting", 2], /*Medic info (2 = advanced, 1 = basic)*/
 	["ace_medical_increaseTrainingInLocations", true], /*Increase training in locations*/
 	["ace_medical_allowLitterCreation", true], /*Allow litter*/
@@ -38,7 +38,7 @@ _ace_settings = [
 	["ace_medical_menu_maxRange", 3], /*max range*/
 	
 	/*Revive*/
-	["ace_medical_enableRevive", 2], /*Enable (0 = disable, 1 = players, 2 = players&AI)*/
+	["ace_medical_enableRevive", 1], /*Enable (0 = disable, 1 = players, 2 = players&AI)*/
 	["ace_medical_maxReviveTime", 180], /*Max time*/
 	["ace_medical_amountOfReviveLives", -1], /*amount of lives (-1 to disable)*/
 	

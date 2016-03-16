@@ -44,16 +44,6 @@ if (isServer) then {
 
 	patrols = [10, 3, 4] call caran_presenceArray;
 	
-	if (low_players) then {
-		mg_block_1 = [3] call caran_randInt;
-		mg_block_2 = [4] call caran_randInt;
-		mg_block_3 = [4] call caran_randInt;
-		
-		at_block_1 = [3, 2] call caran_presenceArray;
-		at_block_2 = [3, 2] call caran_presenceArray;
-		at_block_3 = [3, 2] call caran_presenceArray;
-	};
-	
 	//randomising hostage positions
 	hostages_atc = [7, 1, 2] call caran_presenceArray;
 	hostages_shack = [9, 3, 5] call caran_presenceArray;
@@ -87,7 +77,6 @@ if (isServer) then {
 	publicVariable "assault_call";
 	publicVariable "clear_call";
 	
-	route_cleared = false;
 	area_cleared = false;
 	
 	//Define strings to search for in active addons

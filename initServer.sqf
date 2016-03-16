@@ -6,15 +6,7 @@ This runs on the server machine after objects have initialised in the map. Anyth
 [missionNamespace, 1] call BIS_fnc_respawnTickets;
 [missionNamespace, -1] call BIS_fnc_respawnTickets;
 
-//Task setting: ["TaskName", locality, ["Description", "Title", "Marker"], target, "STATE", priority, showNotification, true] call BIS_fnc_setTask;
-if (low_players) then {
-	["ClearRoute", true, ["Clear the roadblocks before calling in the assault.", "Clear Roadblocks", ""], nil, "ASSIGNED", 2, false, true] call BIS_fnc_setTask;
-} else {
-	deleteVehicle trigger_assault;
-};
-
 ["KillTerrorists", true, ["Show them how we deal with terrorists - neutralise all hostiles.", "Neutralise Terrorists", ""], nil, "CREATED", 1, false, true] call BIS_fnc_setTask;
-
 ["RescueHostages", true, ["Rescuing as many hostages as possible would be a nice PR bonus.", "Rescue (OPTIONAL)", ""], nil, "CREATED", 0, false, true] call BIS_fnc_setTask;
 
 //Spawns a thread that will run a loop to keep an eye on mission progress and to end it when appropriate, checking which ending should be displayed.
@@ -29,16 +21,7 @@ _progress = [] spawn {
 	{
 		_x addEventHandler ["Fired", {_this execVM "logic\shot.sqf"} ];
 	} forEach playableUnits;
-	
-	//Event handler for failing roadblock task if assault forces run into a mine
-	if (low_players) then {
-		{
-			_x addEventHandler ["HandleDamage", {_this execVM "logic\assaultDamaged.sqf"} ];
-		} forEach [assault1, assault2, assault3];
-	} else {
-		{ deleteMarker _x; } forEach ["marker_block1", "marker_block2", "marker_block3"];
-	};
-	
+
 	//Starts a loop to check mission status every second, update tasks, and end mission when appropriate
 	while {!_ending} do {
 		
@@ -50,29 +33,11 @@ _progress = [] spawn {
 			
 			_endState = "";
 			
-			if (low_players) then {
-				if ( (assault1 getVariable ["didBlowUp", false]) || (assault1 getVariable ["didBlowUp", false]) || (assault1 getVariable ["didBlowUp", false]) ) then {
-					["ClearRoute", "FAILED", false] call BIS_fnc_taskSetState;
-				} else {
-					if (route_cleared) then {
-						["ClearRoute", "SUCCEEDED", false] call BIS_fnc_taskSetState;
-					} else {
-						if (_players_dead) then {
-							["ClearRoute", "FAILED", false] call BIS_fnc_taskSetState;
-						} else {
-							["ClearRoute", "CANCELED", false] call BIS_fnc_taskSetState;
-						};
-					};
-				};
-			};
-			
 			if (area_cleared && canMove helo1 && canMove helo2) then {
 				["KillTerrorists", "SUCCEEDED", false] call BIS_fnc_taskSetState;
-				
 				_endState = "Win";
 			} else {
 				["KillTerrorists", "FAILED", false] call BIS_fnc_taskSetState;
-				
 				_endState = "Lose";
 			};
 			
