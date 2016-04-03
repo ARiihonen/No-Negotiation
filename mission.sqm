@@ -16,14 +16,14 @@ class EditorData
 	};
 	class LayerIndexProvider
 	{
-		nextID=613;
+		nextID=655;
 	};
 	class Camera
 	{
-		pos[]={9386.9102,217.72763,21482.016};
-		dir[]={-0.52802479,-0.71152931,0.46371406};
-		up[]={-0.53463566,0.70264065,0.46952009};
-		aside[]={0.65991092,1.5005935e-006,0.75142825};
+		pos[]={9652.3311,152.88492,20677.441};
+		dir[]={-0.29296368,-0.19886605,0.93522567};
+		up[]={-0.059447352,0.98002833,0.18977295};
+		aside[]={0.95429176,-2.2497261e-008,0.29893696};
 	};
 };
 binarizationWanted=0;
@@ -95,25 +95,6 @@ class CustomAttributes
 		name="Multiplayer";
 		class Attribute0
 		{
-			property="RespawnButton";
-			expression="true";
-			class Value
-			{
-				class data
-				{
-					class type
-					{
-						type[]=
-						{
-							"SCALAR"
-						};
-					};
-					value=0;
-				};
-			};
-		};
-		class Attribute1
-		{
 			property="RespawnTemplates";
 			expression="true";
 			class Value
@@ -145,6 +126,25 @@ class CustomAttributes
 							};
 						};
 					};
+				};
+			};
+		};
+		class Attribute1
+		{
+			property="RespawnButton";
+			expression="true";
+			class Value
+			{
+				class data
+				{
+					class type
+					{
+						type[]=
+						{
+							"SCALAR"
+						};
+					};
+					value=0;
 				};
 			};
 		};
@@ -183,11 +183,11 @@ class Mission
 		overviewText="Altian special forces raid a small airfield, where terrorists have taken hostages.";
 		resistanceWest=0;
 		timeOfChanges=3600;
-		startWeather=0.89724565;
+		startWeather=0.69531244;
 		startWind=0.1;
 		startRain=0.49999991;
 		startWaves=0.1;
-		forecastWeather=0.053098522;
+		forecastWeather=0.30468732;
 		forecastWind=0.1;
 		forecastWaves=0.1;
 		forecastLightnings=0.1;
