@@ -1,184 +1,133 @@
-#include "..\logic\gear.sqf"
+#include "..\logic\activeMods.sqf"
 
 //Get player class and make sure it's all uppercase since BI classnames are super inconsistent
 _class = typeOf player;
 _class = toUpper _class;
 
-//Remove all gear. Remove if only adding items or swapping non-containers
-player call caran_clearInventory;
-
-//Define default gear types. Leave as is if no change from default unit required (or remove both from here and from calls at the end of this file)
-_uniform = "U_I_CombatUniform";
-_vest = "V_PlateCarrierIA2_dgtl";
-_backpack = "";
-_headwear = ["H_HelmetSpecB", "G_Bandanna_blk"];
-
-_items = [ ["SmokeShell", 2, "Vest"], ["HandGrenade", 1, "Vest"] ];
-_link_items = ["ItemMap", "ItemCompass", "ItemWatch"];
-_item_weapons = [];
-
 //Medical. ACE if active, vanilla if not
 if ( "ace_" call caran_checkMod ) then {
-	{ _items set [count _items, [_x, 4, "Uniform"]]; } forEach ["ACE_morphine", "ACE_epinephrine"];
-	{ _items set [count _items, [_x, 8, "Uniform"]]; } forEach ["ACE_elasticBandage", "ACE_packingBandage"];
-	_items set [count _items, ["ACE_tourniquet", 1, "Uniform"]];
+	{
+		for "_i" from 1 to 4 do {
+			player addItemToUniform _x;
+		};
+	} forEach ["ACE_morphine", "ACE_epinephrine"];
+	{
+		for "_i" from 1 to 8 do {
+			player addItemToUniform _x;
+		};
+	} forEach ["ACE_elasticBandage", "ACE_packingBandage"];
 } else {
-	_items set [count _items, ["FirstAidKit", 2, "Uniform"]];
+	for "_i" from 1 to 2 do {
+		player addItemToUniform "FirstAidKit";
+	};
 };
 
-//ACRE Radio if active
+//ACRE Radio if active, otherwise normal radio
 if ( "acre_" call caran_checkMod ) then {
-	_items set [count _items, ["ACRE_PRC343", 1, "Vest"]];
-	
+	player addItemToUniform "ACRE_PRC343";
+
 	if (player == leader group player) then {
-		_items set [count _items, ["ACRE_PRC152", 1, "Vest"]];
+		player addItemToUniform "ACRE_PRC152";
 	};
 } else {
-	_link_items set [count _link_items, "ItemRadio"];
+	player linkItem "ItemRadio";
 };
 
-
-//GPS. ACE microDAGR if active, vanilla GPS if not
-if ( (player == leader group player) && (_class != "I_SNIPER_F") && (_class != "I_SPOTTER_F") ) then {
+//GPS. ACE microDAGR if active, vanilla GPS if not, also add maptools
+if ( (player == leader group player) || (_class != "I_SNIPER_F") || (_class != "I_SPOTTER_F") ) then {
 	if ( "ace_" call caran_checkMod ) then {
-		_items set [count _items, ["ACE_microDAGR", 1, "Uniform"]];
+		player addItemToUniform "ACE_microDAGR";
+		player addItemToUniform "ACE_MapTools";
 	} else {
-		_link_items set [count _link_items, "ItemGPS"];
+		player linkItem "ItemGPS";
 	};
 };
-
-//Defusal kits for everyone if low players and ACE active
-if (low_players && ( "ace_" call caran_checkMod ) ) then {
-	_items set [count _items, ["ACE_DefusalKit", 1, "Uniform"]];
-};
-
-//Primary weapon
-_primary_weapon = "arifle_MX_Black_F";
-_primary_weapon_items = ["acc_pointer_IR", "optic_Aco"];
-_primary_ammo_array = ["30Rnd_65x39_caseless_mag", 8, "Vest"];
-
-//Sidearm
-_handgun = "hgun_ACPC2_F";
-_handgun_items = [];
-_handgun_ammo_array = ["9Rnd_45ACP_Mag", 3, "Vest"];
 
 //Defining and assigning non-standard gear
 switch _class do {
 	
-	//Platoon leader, squad leaders and team leaders get binoculars
-	case "I_OFFICER_F": {
-		_item_weapons set [count _item_weapons, "Binocular"];
-	};
-	
-	case "I_SOLDIER_SL_F": { 
-		_item_weapons set [count _item_weapons, "Binocular"];
-	};
-	
-	case "I_SOLDIER_TL_F": { 
-		_item_weapons set [count _item_weapons, "Binocular"];
-	};
-	
-	//UAV Controller gets an UAV
-	case "I_SOLDIER_UAV_F": {
-		_link_items set [count _link_items, "I_UavTerminal"];
-		_backpack = "I_UAV_01_backpack_F";
-	};
-	
-	//Medic gets a backpack and medical supplies (ACE if active, vanilla if not)
+	//Medic extra gear
 	case "I_MEDIC_F": {
-		_backpack = "B_AssaultPack_dgtl";
-		
 		if ( "ace_" call caran_checkMod ) then {
-			_items set [ count _items, ["ACE_personalAidKit", 1, "Backpack"]];
-			_items set [ count _items, ["ACE_bloodIV", 2, "Backpack"]];
-			_items set [ count _items, ["ACE_bloodIV_500", 4, "Backpack"]];
-			_items set [ count _items, ["ACE_tourniquet", 5, "Backpack"]];
-			{ _items set [count _items, [_x, 10, "Backpack"]]; } forEach ["ACE_morphine", "ACE_epinephrine", "ACE_atropine"];
-			{ _items set [count _items, [_x, 25, "Backpack"]]; } forEach ["ACE_packingBandage", "ACE_elasticBandage"];
+			player addItemToBackpack "ACE_personalAidKit";
+			for "_i" from 1 to 2 do { player addItemToBackpack "ACE_bloodIV"; };
+			for "_i" from 1 to 4 do { player addItemToBackpack "ACE_BloodIV_500"; };
+			for "_i" from 1 to 5 do { player addItemToBackpack "ACE_tourniquet"; };
+			{ for "_i" from 1 to 10 do { player addItemToBackpack _x; }; } forEach ["ACE_morphine", "ACE_epinephrine", "ACE_atropine"];
+			{ for "_i" from 1 to 25 do { player addItemToBackpack _x; }; } forEach ["ACE_packingBandage", "ACE_elasticBandage"];
 		} else {
-			_items set [ count _items, ["Medikit", 1, "Backpack"]];
-			_items set [ count _items, ["FirstAidKit", 10, "Backpack"]];
+			player addItemToBackpack "Medikit";
+			for "_i" from 1 to 10 do { player addItemToBackpack "FirstAidKit"; };
 		};
 	};
 	
 	//Sniper gear
-	case "I_SNIPER_F": { 
-		_headwear = ["H_Watchcap_camo", "G_Bandanna_blk"];
+	case "I_SNIPER_F": {
 		
 		//Give AWM if active
 		if ( "hlcweapons_fhawcovert" call caran_checkMod ) then {
-			_primary_weapon = "hlc_rifle_awmagnum";
-			_primary_weapon_items = ["optic_LRPS"];
-			_primary_ammo_array = ["hlc_5rnd_300WM_FMJ_AWM", 6, "Vest"];
-		} else {
-			_primary_weapon = "srifle_LRR_F";
-			_primary_weapon_items = ["optic_LRPS"];
-			_primary_ammo_array = ["7Rnd_408_Mag", 6, "Vest"];
+			player removeWeapon "srifle_GM6_LRPS_F";
+			player removeMagazines "5Rnd_127x108_Mag";
+			
+			for "_i" from 1 to 6 do { player addItemToVest "hlc_5rnd_300WM_BTSP_AWM"; };
+			player addWeapon "hlc_rifle_awmagnum";
 		};
 		
-		//Give special scope if active
+		//Give special scope if active, make sure that regular scope is added if not
 		if ( "rhsusf" call caran_checkMod ) then {
-			_primary_weapon_items = ["rhsusf_acc_LEUPOLDMK4"];
+			player addPrimaryWeaponItem "rhsusf_acc_LEUPOLDMK4";
+		} else {
+			if (!("optic_LRPS" in (primaryWeaponItems player) ) ) then {
+				player addPrimaryWeaponItem "optic_LRPS";
+			};
 		};
 		
 		//Give ACE sniper peripherals (wind meter, range card, DAGR) if active, rangefinder if not
 		if ( "ace_" call caran_checkMod ) then {
-			{ _items set [count _items, [_x, 1, "Uniform"]]; } forEach ["ACE_Kestrel4500", "ACE_RangeCard", "ACE_DAGR"];
-			_item_weapons set [count _item_weapons, "ACE_Vector"];
+			{ player addItemToUniform _x; } forEach ["ACE_Kestrel4500", "ACE_RangeCard", "ACE_DAGR", "ACE_MapTools"];
+			player addWeapon "ACE_Vector";
 		} else {
-			_item_weapons set [count _item_weapons, "Rangefinder"];
+			player addWeapon "Rangefinder";
 		};
 
 	};
 	
 	//Spotter gear
 	case "I_SPOTTER_F": {
-		_headwear = ["H_Watchcap_camo", "G_Bandanna_blk"];
-		
-		_primary_weapon = "arifle_MXM_Black_F";
-		_primary_weapon_items = ["acc_pointer_IR", "optic_DMS", "bipod_03_F_blk"];
-		_primary_ammo_array = ["30Rnd_65x39_caseless_mag", 8, "Vest"];
-		
 		//Give ACE sniper peripherals (wind meter, range card, DAGR) if active, rangefinder if not
 		if ( "ace_" call caran_checkMod ) then {
-			{ _items set [count _items, [_x, 1, "Uniform"]]; } forEach ["ACE_Kestrel4500", "ACE_RangeCard", "ACE_DAGR"];
-			_item_weapons set [count _item_weapons, "ACE_Vector"];
+			{ player addItemToUniform _x; } forEach ["ACE_Kestrel4500", "ACE_RangeCard", "ACE_DAGR", "ACE_MapTools"];
+			player addWeapon "ACE_Vector";
 		} else {
-			_item_weapons set [count _item_weapons, "Rangefinder"];
+			player addWeapon "Rangefinder";
 		};
 	};
 	
-	//Marksman gear
-	case "I_SOLDIER_M_F": {
-		_primary_weapon = "arifle_MXM_Black_F";
-		_primary_weapon_items = ["acc_pointer_IR", "optic_DMS", "bipod_03_F_blk"];
-		_primary_ammo_array = ["30Rnd_65x39_caseless_mag", 8, "Vest"];
+	//HMG Gunner
+	case "I_SUPPORT_MG_F": {
+		if ("rhsusf_" call caran_checkMod) then {
+			removeBackpack player;
+			player addBackpack "RHS_M2_Gun_Bag";
+		};
 	};
 	
-	//Assaultrifleman gets LMG
-	case "I_SOLDIER_AR_F": {
-		_primary_weapon = "LMG_Zafir_F";
-		_primary_weapon_items = ["acc_pointer_IR", "optic_Aco"];
-		_primary_ammo_array = ["150Rnd_762x54_Box", 3, "Backpack"];
-		
-		_backpack = "B_assaultPack_dgtl";
+	//HMG Assistant
+	case "I_SUPPORT_AMG_F": {
+		if ("rhsusf_" call caran_checkMod) then {
+			removeBackpack player;
+			player addBackpack "RHS_M2_Tripod_Bag";
+		};
 	};
 	
-	//Explosive specialist
-	case "I_SOLDIER_EXP_F": {
-		if (low_players && !("ace_" call caran_checkMod) ) then {
-			_backpack = "B_AssaultPack_dgtl";
-			
-			_items set [count _items, ["ToolKit", 1, "Backpack"]];
-			_items set [count _items, ["MineDetector", 1, "Backpack"]];
+	//AT Rifleman
+	case "I_SOLDIER_LAT_F": {
+		if ("rhsusf_" call caran_checkMod) then {
+			player addWeapon "rhs_weap_M136_hedp";
+		} else {
+			player addBackpack "B_AssaultPack_rgr";
+			player addItemToBackpack "NLAW_F";
+			player addWeapon "launch_NLAW_F";
+			removeBackpack player;
 		};
 	};
 };
-
-//Adding gear. 
-[player, _uniform, _vest, _backpack, _headwear] call caran_addClothing;
-[player, _items] call caran_addInventoryItems;
-[player, _link_items] call caran_addLinkedItems;
-[player, _item_weapons] call caran_addInventoryWeapons;
-[player, _primary_weapon, _primary_weapon_items, _primary_ammo_array] call caran_addPrimaryWeapon;
-[player, _handgun, _handgun_items, _handgun_ammo_array] call caran_addHandgun;

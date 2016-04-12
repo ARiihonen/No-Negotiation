@@ -8,7 +8,7 @@ class EditorData
 	toggles=9;
 	class ItemIDProvider
 	{
-		nextID=2634;
+		nextID=2698;
 	};
 	class MarkerIDProvider
 	{
@@ -16,14 +16,14 @@ class EditorData
 	};
 	class LayerIndexProvider
 	{
-		nextID=655;
+		nextID=729;
 	};
 	class Camera
 	{
-		pos[]={9652.3311,152.88492,20677.441};
-		dir[]={-0.29296368,-0.19886605,0.93522567};
-		up[]={-0.059447352,0.98002833,0.18977295};
-		aside[]={0.95429176,-2.2497261e-008,0.29893696};
+		pos[]={9647.9658,142.79994,20712.215};
+		dir[]={-0.79872698,-0.37803423,0.46836191};
+		up[]={-0.32620952,0.92571104,0.19128937};
+		aside[]={0.50590444,-2.5415793e-006,0.86273819};
 	};
 };
 binarizationWanted=0;
@@ -68,12 +68,14 @@ addons[]=
 	"A3_Air_F_Beta_Heli_Transport_02",
 	"A3_Structures_F_Mil_Helipads",
 	"A3_Soft_F_Gamma_Offroad",
-	"a3_soft_f_offroad_01"
+	"a3_soft_f_offroad_01",
+	"A3_Armor_F_Slammer",
+	"A3_Modules_F_Supports"
 };
 randomSeed=4582267;
 class ScenarioData
 {
-	overviewText="Altian special forces raid an airfield where terrorists have taken hostages. The survival of the hostages is secondary, when the leadership wants to show they are tough on terrorism. Version 1.2.5";
+	overviewText="Altian special forces raid an airfield where terrorists have taken hostages. The survival of the hostages is secondary, when the leadership wants to show they are tough on terrorism.";
 	onLoadMission="You do not negotiate with terrorists.";
 	loadScreen="pictures\loadscreen.paa";
 	saving=0;
@@ -85,7 +87,7 @@ class ScenarioData
 	{
 		gameType="Coop";
 		minPlayers=6;
-		maxPlayers=24;
+		maxPlayers=21;
 	};
 };
 class CustomAttributes
@@ -122,7 +124,7 @@ class CustomAttributes
 										"STRING"
 									};
 								};
-								value="Tickets";
+								value="Counter";
 							};
 						};
 					};
@@ -179,7 +181,7 @@ class Mission
 {
 	class Intel
 	{
-		briefingName="CO06-24 - No Negotiation";
+		briefingName="CO06-21 - No Negotiation";
 		overviewText="Altian special forces raid a small airfield, where terrorists have taken hostages.";
 		resistanceWest=0;
 		timeOfChanges=3600;
@@ -202,7 +204,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=101;
+		items=104;
 		class Item0
 		{
 			dataType="Group";
@@ -9352,22 +9354,6 @@ class Mission
 		class Item92
 		{
 			dataType="Layer";
-			name="Assault forces";
-			class Entities
-			{
-				items=1;
-				class Item0
-				{
-					dataType="Layer";
-					name="Vehicles";
-					id=2350;
-				};
-			};
-			id=2334;
-		};
-		class Item93
-		{
-			dataType="Layer";
 			name="Players";
 			class Entities
 			{
@@ -9378,7 +9364,7 @@ class Mission
 					side="Independent";
 					class Entities
 					{
-						items=4;
+						items=3;
 						class Item0
 						{
 							dataType="Object";
@@ -9396,31 +9382,86 @@ class Mission
 								description="Platoon Commander";
 								isPlayer=1;
 								isPlayable=1;
+								class Inventory
+								{
+									class primaryWeapon
+									{
+										name="arifle_MX_Black_F";
+										optics="optic_Aco";
+										class primaryMuzzleMag
+										{
+											name="30Rnd_65x39_caseless_mag";
+											ammoLeft=30;
+										};
+									};
+									class handgun
+									{
+										name="hgun_ACPC2_F";
+										class primaryMuzzleMag
+										{
+											name="9Rnd_45ACP_Mag";
+											ammoLeft=9;
+										};
+									};
+									class binocular
+									{
+										name="Binocular";
+									};
+									class uniform
+									{
+										typeName="U_I_CombatUniform";
+										isBackpack=0;
+									};
+									class vest
+									{
+										typeName="V_PlateCarrierIA2_dgtl";
+										isBackpack=0;
+										class MagazineCargo
+										{
+											items=5;
+											class Item0
+											{
+												name="SmokeShell";
+												count=2;
+												ammoLeft=1;
+											};
+											class Item1
+											{
+												name="HandGrenade";
+												count=1;
+												ammoLeft=1;
+											};
+											class Item2
+											{
+												name="30Rnd_65x39_caseless_mag";
+												count=4;
+												ammoLeft=30;
+											};
+											class Item3
+											{
+												name="9Rnd_45ACP_Mag";
+												count=3;
+												ammoLeft=9;
+											};
+											class Item4
+											{
+												name="30Rnd_65x39_caseless_mag_Tracer";
+												count=4;
+												ammoLeft=30;
+											};
+										};
+									};
+									map="ItemMap";
+									compass="ItemCompass";
+									watch="ItemWatch";
+									goggles="G_Bandanna_blk";
+									headgear="H_HelmetB_light_black";
+								};
 							};
 							id=2118;
 							type="I_officer_F";
 						};
 						class Item1
-						{
-							dataType="Object";
-							class PositionInfo
-							{
-								position[]={9638.2197,136.75671,20738.9};
-								angles[]={0,3.145345,0};
-							};
-							side="Independent";
-							flags=1;
-							class Attributes
-							{
-								rank="SERGEANT";
-								init="(group this) setGroupIDGlobal [""Command""];";
-								description="UAV Operator";
-								isPlayable=1;
-							};
-							id=2120;
-							type="I_soldier_UAV_F";
-						};
-						class Item2
 						{
 							dataType="Object";
 							class PositionInfo
@@ -9436,11 +9477,81 @@ class Mission
 								init="(group this) setGroupIDGlobal [""Command""];";
 								description="Platoon Medic";
 								isPlayable=1;
+								class Inventory
+								{
+									class primaryWeapon
+									{
+										name="arifle_MX_Black_F";
+										optics="optic_Aco";
+										class primaryMuzzleMag
+										{
+											name="30Rnd_65x39_caseless_mag";
+											ammoLeft=30;
+										};
+									};
+									class handgun
+									{
+										name="hgun_ACPC2_F";
+										class primaryMuzzleMag
+										{
+											name="9Rnd_45ACP_Mag";
+											ammoLeft=9;
+										};
+									};
+									class uniform
+									{
+										typeName="U_I_CombatUniform";
+										isBackpack=0;
+									};
+									class vest
+									{
+										typeName="V_PlateCarrierIA2_dgtl";
+										isBackpack=0;
+										class MagazineCargo
+										{
+											items=4;
+											class Item0
+											{
+												name="SmokeShell";
+												count=2;
+												ammoLeft=1;
+											};
+											class Item1
+											{
+												name="HandGrenade";
+												count=1;
+												ammoLeft=1;
+											};
+											class Item2
+											{
+												name="30Rnd_65x39_caseless_mag";
+												count=8;
+												ammoLeft=30;
+											};
+											class Item3
+											{
+												name="9Rnd_45ACP_Mag";
+												count=3;
+												ammoLeft=9;
+											};
+										};
+									};
+									class backpack
+									{
+										typeName="B_AssaultPack_dgtl";
+										isBackpack=1;
+									};
+									map="ItemMap";
+									compass="ItemCompass";
+									watch="ItemWatch";
+									goggles="G_Bandanna_blk";
+									headgear="H_HelmetB_light_black";
+								};
 							};
 							id=2122;
 							type="I_medic_F";
 						};
-						class Item3
+						class Item2
 						{
 							dataType="Object";
 							class PositionInfo
@@ -9449,16 +9560,102 @@ class Mission
 								angles[]={0,2.9253812,0};
 							};
 							side="Independent";
-							flags=1;
 							class Attributes
 							{
 								rank="CORPORAL";
 								init="(group this) setGroupIDGlobal [""Command""];";
-								description="Rifleman";
+								description="Grenadier";
 								isPlayable=1;
+								class Inventory
+								{
+									class primaryWeapon
+									{
+										name="arifle_MX_GL_Black_F";
+										optics="optic_Aco";
+										class primaryMuzzleMag
+										{
+											name="30Rnd_65x39_caseless_mag";
+											ammoLeft=30;
+										};
+									};
+									class handgun
+									{
+										name="hgun_ACPC2_F";
+										class primaryMuzzleMag
+										{
+											name="9Rnd_45ACP_Mag";
+											ammoLeft=9;
+										};
+									};
+									class uniform
+									{
+										typeName="U_I_CombatUniform";
+										isBackpack=0;
+										class MagazineCargo
+										{
+											items=1;
+											class Item0
+											{
+												name="30Rnd_65x39_caseless_mag";
+												count=3;
+												ammoLeft=30;
+											};
+										};
+									};
+									class vest
+									{
+										typeName="V_PlateCarrierIA2_dgtl";
+										isBackpack=0;
+										class MagazineCargo
+										{
+											items=6;
+											class Item0
+											{
+												name="SmokeShell";
+												count=2;
+												ammoLeft=1;
+											};
+											class Item1
+											{
+												name="HandGrenade";
+												count=1;
+												ammoLeft=1;
+											};
+											class Item2
+											{
+												name="9Rnd_45ACP_Mag";
+												count=3;
+												ammoLeft=9;
+											};
+											class Item3
+											{
+												name="30Rnd_65x39_caseless_mag";
+												count=6;
+												ammoLeft=30;
+											};
+											class Item4
+											{
+												name="1Rnd_HE_Grenade_shell";
+												count=4;
+												ammoLeft=1;
+											};
+											class Item5
+											{
+												name="1Rnd_Smoke_Grenade_shell";
+												count=2;
+												ammoLeft=1;
+											};
+										};
+									};
+									map="ItemMap";
+									compass="ItemCompass";
+									watch="ItemWatch";
+									goggles="G_Bandanna_blk";
+									headgear="H_HelmetB_light_black";
+								};
 							};
-							id=2124;
-							type="I_soldier_F";
+							id=2665;
+							type="I_Soldier_GL_F";
 						};
 					};
 					class Attributes
@@ -9512,6 +9709,72 @@ class Mission
 								init="(group this) setGroupIDGlobal [""Sierra""];";
 								description="Sniper";
 								isPlayable=1;
+								class Inventory
+								{
+									class primaryWeapon
+									{
+										name="srifle_GM6_LRPS_F";
+										optics="optic_LRPS";
+										class primaryMuzzleMag
+										{
+											name="5Rnd_127x108_Mag";
+											ammoLeft=5;
+										};
+									};
+									class handgun
+									{
+										name="hgun_ACPC2_snds_F";
+										muzzle="muzzle_snds_acp";
+										class primaryMuzzleMag
+										{
+											name="9Rnd_45ACP_Mag";
+											ammoLeft=9;
+										};
+									};
+									class uniform
+									{
+										typeName="U_I_CombatUniform";
+										isBackpack=0;
+									};
+									class vest
+									{
+										typeName="V_Chestrig_rgr";
+										isBackpack=0;
+										class MagazineCargo
+										{
+											items=4;
+											class Item0
+											{
+												name="5Rnd_127x108_Mag";
+												count=6;
+												ammoLeft=5;
+											};
+											class Item1
+											{
+												name="9Rnd_45ACP_Mag";
+												count=2;
+												ammoLeft=9;
+											};
+											class Item2
+											{
+												name="SmokeShell";
+												count=2;
+												ammoLeft=1;
+											};
+											class Item3
+											{
+												name="SmokeShellGreen";
+												count=1;
+												ammoLeft=1;
+											};
+										};
+									};
+									map="ItemMap";
+									compass="ItemCompass";
+									watch="ItemWatch";
+									goggles="G_Bandanna_oli";
+									headgear="H_Cap_headphones";
+								};
 							};
 							id=2126;
 							type="I_Sniper_F";
@@ -9521,8 +9784,8 @@ class Mission
 							dataType="Object";
 							class PositionInfo
 							{
-								position[]={9644.3271,136.02502,20737.873};
-								angles[]={0,3.5804033,0};
+								position[]={9643.9092,136.31392,20736.295};
+								angles[]={0,4.4562998,0};
 							};
 							side="Independent";
 							flags=1;
@@ -9532,6 +9795,83 @@ class Mission
 								init="(group this) setGroupIDGlobal [""Sierra""];";
 								description="Spotter";
 								isPlayable=1;
+								class Inventory
+								{
+									class primaryWeapon
+									{
+										name="srifle_EBR_F";
+										optics="optic_DMS";
+										underBarrel="bipod_03_F_blk";
+										class primaryMuzzleMag
+										{
+											name="20Rnd_762x51_Mag";
+											ammoLeft=20;
+										};
+									};
+									class handgun
+									{
+										name="hgun_ACPC2_snds_F";
+										muzzle="muzzle_snds_acp";
+										class primaryMuzzleMag
+										{
+											name="9Rnd_45ACP_Mag";
+											ammoLeft=9;
+										};
+									};
+									class uniform
+									{
+										typeName="U_I_CombatUniform";
+										isBackpack=0;
+										class MagazineCargo
+										{
+											items=1;
+											class Item0
+											{
+												name="20Rnd_762x51_Mag";
+												count=2;
+												ammoLeft=20;
+											};
+										};
+									};
+									class vest
+									{
+										typeName="V_Chestrig_rgr";
+										isBackpack=0;
+										class MagazineCargo
+										{
+											items=4;
+											class Item0
+											{
+												name="9Rnd_45ACP_Mag";
+												count=2;
+												ammoLeft=9;
+											};
+											class Item1
+											{
+												name="SmokeShell";
+												count=2;
+												ammoLeft=1;
+											};
+											class Item2
+											{
+												name="SmokeShellGreen";
+												count=1;
+												ammoLeft=1;
+											};
+											class Item3
+											{
+												name="20Rnd_762x51_Mag";
+												count=8;
+												ammoLeft=20;
+											};
+										};
+									};
+									map="ItemMap";
+									compass="ItemCompass";
+									watch="ItemWatch";
+									goggles="G_Bandanna_oli";
+									headgear="H_Cap_headphones";
+								};
 							};
 							id=2128;
 							type="I_Spotter_F";
@@ -9577,8 +9917,8 @@ class Mission
 							dataType="Object";
 							class PositionInfo
 							{
-								position[]={9625.2754,137.6707,20735.365};
-								angles[]={0,0.94799304,0};
+								position[]={9627.8066,137.54337,20735.57};
+								angles[]={0,0.90388858,0};
 							};
 							side="Independent";
 							flags=3;
@@ -9586,10 +9926,85 @@ class Mission
 							{
 								rank="SERGEANT";
 								init="(group this) setGroupIDGlobal [""Alpha""];";
-								description="Alpha lead";
+								description="Alpha Lead";
 								isPlayable=1;
+								class Inventory
+								{
+									class primaryWeapon
+									{
+										name="arifle_MX_Black_F";
+										optics="optic_Aco";
+										class primaryMuzzleMag
+										{
+											name="30Rnd_65x39_caseless_mag";
+											ammoLeft=30;
+										};
+									};
+									class handgun
+									{
+										name="hgun_ACPC2_F";
+										class primaryMuzzleMag
+										{
+											name="9Rnd_45ACP_Mag";
+											ammoLeft=9;
+										};
+									};
+									class binocular
+									{
+										name="Binocular";
+									};
+									class uniform
+									{
+										typeName="U_I_CombatUniform";
+										isBackpack=0;
+									};
+									class vest
+									{
+										typeName="V_PlateCarrierIA2_dgtl";
+										isBackpack=0;
+										class MagazineCargo
+										{
+											items=5;
+											class Item0
+											{
+												name="SmokeShell";
+												count=2;
+												ammoLeft=1;
+											};
+											class Item1
+											{
+												name="HandGrenade";
+												count=1;
+												ammoLeft=1;
+											};
+											class Item2
+											{
+												name="30Rnd_65x39_caseless_mag";
+												count=4;
+												ammoLeft=30;
+											};
+											class Item3
+											{
+												name="9Rnd_45ACP_Mag";
+												count=3;
+												ammoLeft=9;
+											};
+											class Item4
+											{
+												name="30Rnd_65x39_caseless_mag_Tracer";
+												count=4;
+												ammoLeft=30;
+											};
+										};
+									};
+									map="ItemMap";
+									compass="ItemCompass";
+									watch="ItemWatch";
+									goggles="G_Bandanna_blk";
+									headgear="H_HelmetB_light_black";
+								};
 							};
-							id=2130;
+							id=2650;
 							type="I_Soldier_SL_F";
 						};
 						class Item1
@@ -9597,8 +10012,8 @@ class Mission
 							dataType="Object";
 							class PositionInfo
 							{
-								position[]={9625.9316,137.65401,20733.586};
-								angles[]={0,1.0648079,0};
+								position[]={9627.3359,137.58284,20734.215};
+								angles[]={0,0.99614668,0};
 							};
 							side="Independent";
 							flags=1;
@@ -9608,115 +10023,15 @@ class Mission
 								init="(group this) setGroupIDGlobal [""Alpha""];";
 								description="Combat Life Saver";
 								isPlayable=1;
-							};
-							id=2132;
-							type="I_medic_F";
-						};
-						class Item2
-						{
-							dataType="Object";
-							class PositionInfo
-							{
-								position[]={9627.1094,137.60997,20732.471};
-								angles[]={0,0.80763364,0};
-							};
-							side="Independent";
-							flags=1;
-							class Attributes
-							{
-								rank="CORPORAL";
-								init="(group this) setGroupIDGlobal [""Alpha""];";
-								description="Marksman";
-								isPlayable=1;
-							};
-							id=2134;
-							type="I_Soldier_M_F";
-						};
-						class Item3
-						{
-							dataType="Object";
-							class PositionInfo
-							{
-								position[]={9628.5098,137.55144,20732.008};
-								angles[]={0,0.4394739,0};
-							};
-							side="Independent";
-							flags=1;
-							class Attributes
-							{
-								rank="CORPORAL";
-								init="(group this) setGroupIDGlobal [""Alpha""];";
-								description="Rifleman";
-								isPlayable=1;
-							};
-							id=2136;
-							type="I_soldier_F";
-						};
-						class Item4
-						{
-							dataType="Object";
-							class PositionInfo
-							{
-								position[]={9630.248,137.47032,20732.037};
-								angles[]={0,0.4394739,0};
-							};
-							side="Independent";
-							flags=1;
-							class Attributes
-							{
-								rank="SERGEANT";
-								init="(group this) setGroupIDGlobal [""Alpha""];";
-								description="Team Leader";
-								isPlayable=1;
-							};
-							id=2138;
-							type="I_Soldier_TL_F";
-						};
-						class Item5
-						{
-							dataType="Object";
-							class PositionInfo
-							{
-								position[]={9630.5605,137.47778,20730.648};
-								angles[]={0,0.4394739,0};
-							};
-							side="Independent";
-							flags=1;
-							class Attributes
-							{
-								rank="CORPORAL";
-								init="(group this) setGroupIDGlobal [""Alpha""];";
-								description="Autorifleman";
-								isPlayable=1;
-							};
-							id=2140;
-							type="I_Soldier_AR_F";
-						};
-						class Item6
-						{
-							dataType="Object";
-							class PositionInfo
-							{
-								position[]={9631.5186,137.46152,20729.867};
-								angles[]={0.025324726,0.4394739,6.2538638};
-							};
-							side="Independent";
-							class Attributes
-							{
-								rank="CORPORAL";
-								init="(group this) setGroupIDGlobal [""Alpha""];";
-								description="Defusal Specialist";
-								isPlayable=1;
 								class Inventory
 								{
 									class primaryWeapon
 									{
-										name="arifle_Mk20C_ACO_pointer_F";
-										optics="optic_ACO_grn";
-										flashlight="acc_pointer_IR";
+										name="arifle_MX_Black_F";
+										optics="optic_Aco";
 										class primaryMuzzleMag
 										{
-											name="30Rnd_556x45_Stanag";
+											name="30Rnd_65x39_caseless_mag";
 											ammoLeft=30;
 										};
 									};
@@ -9731,82 +10046,39 @@ class Mission
 									};
 									class uniform
 									{
-										typeName="U_I_CombatUniform_shortsleeve";
+										typeName="U_I_CombatUniform";
 										isBackpack=0;
-										class MagazineCargo
-										{
-											items=3;
-											class Item0
-											{
-												name="30Rnd_556x45_Stanag";
-												count=3;
-												ammoLeft=30;
-											};
-											class Item1
-											{
-												name="SmokeShellGreen";
-												count=1;
-												ammoLeft=1;
-											};
-											class Item2
-											{
-												name="Chemlight_green";
-												count=1;
-												ammoLeft=1;
-											};
-										};
-										class ItemCargo
-										{
-											items=1;
-											class Item0
-											{
-												name="FirstAidKit";
-												count=1;
-											};
-										};
 									};
 									class vest
 									{
-										typeName="V_PlateCarrierIAGL_dgtl";
+										typeName="V_PlateCarrierIA2_dgtl";
 										isBackpack=0;
 										class MagazineCargo
 										{
-											items=6;
+											items=4;
 											class Item0
 											{
-												name="30Rnd_556x45_Stanag";
+												name="SmokeShell";
 												count=2;
-												ammoLeft=30;
+												ammoLeft=1;
 											};
 											class Item1
 											{
-												name="9Rnd_45ACP_Mag";
-												count=2;
-												ammoLeft=9;
+												name="HandGrenade";
+												count=1;
+												ammoLeft=1;
 											};
 											class Item2
 											{
-												name="APERSMine_Range_Mag";
-												count=3;
-												ammoLeft=1;
+												name="30Rnd_65x39_caseless_mag";
+												count=8;
+												ammoLeft=30;
 											};
 											class Item3
 											{
-												name="HandGrenade";
-												count=2;
-												ammoLeft=1;
-											};
-											class Item4
-											{
-												name="SmokeShell";
-												count=1;
-												ammoLeft=1;
-											};
-											class Item5
-											{
-												name="Chemlight_green";
-												count=1;
-												ammoLeft=1;
+												name="9Rnd_45ACP_Mag";
+												count=3;
+												ammoLeft=9;
 											};
 										};
 									};
@@ -9814,66 +10086,547 @@ class Mission
 									{
 										typeName="B_AssaultPack_dgtl";
 										isBackpack=1;
-										class MagazineCargo
-										{
-											items=1;
-											class Item0
-											{
-												name="APERSBoundingMine_Range_Mag";
-												count=1;
-												ammoLeft=1;
-											};
-										};
-										class ItemCargo
-										{
-											items=2;
-											class Item0
-											{
-												name="ToolKit";
-												count=1;
-											};
-											class Item1
-											{
-												name="MineDetector";
-												count=1;
-											};
-										};
 									};
 									map="ItemMap";
 									compass="ItemCompass";
 									watch="ItemWatch";
-									radio="ItemRadio";
-									hmd="NVGoggles_INDEP";
-									headgear="H_HelmetIA";
+									goggles="G_Bandanna_blk";
+									headgear="H_HelmetB_light_black";
 								};
 							};
-							id=2531;
-							type="I_Soldier_exp_F";
+							id=2652;
+							type="I_medic_F";
 						};
-						class Item7
+						class Item2
 						{
 							dataType="Object";
 							class PositionInfo
 							{
-								position[]={9632.7021,137.4445,20729.168};
-								angles[]={0,0.4394739,0};
+								position[]={9628.125,137.55017,20733.682};
+								angles[]={0,0.79288167,0};
 							};
 							side="Independent";
+							flags=1;
 							class Attributes
 							{
 								rank="CORPORAL";
 								init="(group this) setGroupIDGlobal [""Alpha""];";
 								description="Rifleman";
 								isPlayable=1;
+								class Inventory
+								{
+									class primaryWeapon
+									{
+										name="arifle_MX_Black_F";
+										optics="optic_Aco";
+										class primaryMuzzleMag
+										{
+											name="30Rnd_65x39_caseless_mag";
+											ammoLeft=30;
+										};
+									};
+									class handgun
+									{
+										name="hgun_ACPC2_F";
+										class primaryMuzzleMag
+										{
+											name="9Rnd_45ACP_Mag";
+											ammoLeft=9;
+										};
+									};
+									class uniform
+									{
+										typeName="U_I_CombatUniform";
+										isBackpack=0;
+									};
+									class vest
+									{
+										typeName="V_PlateCarrierIA2_dgtl";
+										isBackpack=0;
+										class MagazineCargo
+										{
+											items=4;
+											class Item0
+											{
+												name="SmokeShell";
+												count=2;
+												ammoLeft=1;
+											};
+											class Item1
+											{
+												name="HandGrenade";
+												count=1;
+												ammoLeft=1;
+											};
+											class Item2
+											{
+												name="30Rnd_65x39_caseless_mag";
+												count=8;
+												ammoLeft=30;
+											};
+											class Item3
+											{
+												name="9Rnd_45ACP_Mag";
+												count=3;
+												ammoLeft=9;
+											};
+										};
+									};
+									map="ItemMap";
+									compass="ItemCompass";
+									watch="ItemWatch";
+									goggles="G_Bandanna_blk";
+									headgear="H_HelmetB_light_black";
+								};
 							};
-							id=2533;
+							id=2654;
 							type="I_soldier_F";
+						};
+						class Item3
+						{
+							dataType="Object";
+							class PositionInfo
+							{
+								position[]={9628.9688,137.51936,20732.795};
+								angles[]={0,0.83475608,0};
+							};
+							side="Independent";
+							flags=1;
+							class Attributes
+							{
+								rank="CORPORAL";
+								init="(group this) setGroupIDGlobal [""Alpha""];";
+								description="Rifleman";
+								isPlayable=1;
+								class Inventory
+								{
+									class primaryWeapon
+									{
+										name="arifle_MX_Black_F";
+										optics="optic_Aco";
+										class primaryMuzzleMag
+										{
+											name="30Rnd_65x39_caseless_mag";
+											ammoLeft=30;
+										};
+									};
+									class handgun
+									{
+										name="hgun_ACPC2_F";
+										class primaryMuzzleMag
+										{
+											name="9Rnd_45ACP_Mag";
+											ammoLeft=9;
+										};
+									};
+									class uniform
+									{
+										typeName="U_I_CombatUniform";
+										isBackpack=0;
+									};
+									class vest
+									{
+										typeName="V_PlateCarrierIA2_dgtl";
+										isBackpack=0;
+										class MagazineCargo
+										{
+											items=4;
+											class Item0
+											{
+												name="SmokeShell";
+												count=2;
+												ammoLeft=1;
+											};
+											class Item1
+											{
+												name="HandGrenade";
+												count=1;
+												ammoLeft=1;
+											};
+											class Item2
+											{
+												name="30Rnd_65x39_caseless_mag";
+												count=8;
+												ammoLeft=30;
+											};
+											class Item3
+											{
+												name="9Rnd_45ACP_Mag";
+												count=3;
+												ammoLeft=9;
+											};
+										};
+									};
+									map="ItemMap";
+									compass="ItemCompass";
+									watch="ItemWatch";
+									goggles="G_Bandanna_blk";
+									headgear="H_HelmetB_light_black";
+								};
+							};
+							id=2656;
+							type="I_soldier_F";
+						};
+						class Item4
+						{
+							dataType="Object";
+							class PositionInfo
+							{
+								position[]={9630.3008,137.46202,20732.598};
+								angles[]={0,0.74419093,0};
+							};
+							side="Independent";
+							flags=1;
+							class Attributes
+							{
+								rank="SERGEANT";
+								init="(group this) setGroupIDGlobal [""Alpha""];";
+								description="Team Leader";
+								isPlayable=1;
+								class Inventory
+								{
+									class primaryWeapon
+									{
+										name="arifle_MX_Black_F";
+										optics="optic_Aco";
+										class primaryMuzzleMag
+										{
+											name="30Rnd_65x39_caseless_mag";
+											ammoLeft=30;
+										};
+									};
+									class handgun
+									{
+										name="hgun_ACPC2_F";
+										class primaryMuzzleMag
+										{
+											name="9Rnd_45ACP_Mag";
+											ammoLeft=9;
+										};
+									};
+									class binocular
+									{
+										name="Binocular";
+									};
+									class uniform
+									{
+										typeName="U_I_CombatUniform";
+										isBackpack=0;
+									};
+									class vest
+									{
+										typeName="V_PlateCarrierIA2_dgtl";
+										isBackpack=0;
+										class MagazineCargo
+										{
+											items=5;
+											class Item0
+											{
+												name="SmokeShell";
+												count=2;
+												ammoLeft=1;
+											};
+											class Item1
+											{
+												name="HandGrenade";
+												count=1;
+												ammoLeft=1;
+											};
+											class Item2
+											{
+												name="30Rnd_65x39_caseless_mag";
+												count=4;
+												ammoLeft=30;
+											};
+											class Item3
+											{
+												name="9Rnd_45ACP_Mag";
+												count=3;
+												ammoLeft=9;
+											};
+											class Item4
+											{
+												name="30Rnd_65x39_caseless_mag_Tracer";
+												count=4;
+												ammoLeft=30;
+											};
+										};
+									};
+									map="ItemMap";
+									compass="ItemCompass";
+									watch="ItemWatch";
+									goggles="G_Bandanna_blk";
+									headgear="H_HelmetB_light_black";
+								};
+							};
+							id=2658;
+							type="I_Soldier_TL_F";
+						};
+						class Item5
+						{
+							dataType="Object";
+							class PositionInfo
+							{
+								position[]={9631.541,137.44952,20730.605};
+								angles[]={0,0.63287306,0};
+							};
+							side="Independent";
+							flags=1;
+							class Attributes
+							{
+								rank="CORPORAL";
+								init="(group this) setGroupIDGlobal [""Alpha""];";
+								description="Rifleman";
+								isPlayable=1;
+								class Inventory
+								{
+									class primaryWeapon
+									{
+										name="arifle_MX_Black_F";
+										optics="optic_Aco";
+										class primaryMuzzleMag
+										{
+											name="30Rnd_65x39_caseless_mag";
+											ammoLeft=30;
+										};
+									};
+									class handgun
+									{
+										name="hgun_ACPC2_F";
+										class primaryMuzzleMag
+										{
+											name="9Rnd_45ACP_Mag";
+											ammoLeft=9;
+										};
+									};
+									class uniform
+									{
+										typeName="U_I_CombatUniform";
+										isBackpack=0;
+									};
+									class vest
+									{
+										typeName="V_PlateCarrierIA2_dgtl";
+										isBackpack=0;
+										class MagazineCargo
+										{
+											items=4;
+											class Item0
+											{
+												name="SmokeShell";
+												count=2;
+												ammoLeft=1;
+											};
+											class Item1
+											{
+												name="HandGrenade";
+												count=1;
+												ammoLeft=1;
+											};
+											class Item2
+											{
+												name="30Rnd_65x39_caseless_mag";
+												count=8;
+												ammoLeft=30;
+											};
+											class Item3
+											{
+												name="9Rnd_45ACP_Mag";
+												count=3;
+												ammoLeft=9;
+											};
+										};
+									};
+									map="ItemMap";
+									compass="ItemCompass";
+									watch="ItemWatch";
+									goggles="G_Bandanna_blk";
+									headgear="H_HelmetB_light_black";
+								};
+							};
+							id=2662;
+							type="I_soldier_F";
+						};
+						class Item6
+						{
+							dataType="Object";
+							class PositionInfo
+							{
+								position[]={9632.5166,137.43532,20729.746};
+								angles[]={0,0.75953239,0};
+							};
+							side="Independent";
+							flags=1;
+							class Attributes
+							{
+								rank="CORPORAL";
+								init="(group this) setGroupIDGlobal [""Alpha""];";
+								description="Rifleman";
+								isPlayable=1;
+								class Inventory
+								{
+									class primaryWeapon
+									{
+										name="arifle_MX_Black_F";
+										optics="optic_Aco";
+										class primaryMuzzleMag
+										{
+											name="30Rnd_65x39_caseless_mag";
+											ammoLeft=30;
+										};
+									};
+									class handgun
+									{
+										name="hgun_ACPC2_F";
+										class primaryMuzzleMag
+										{
+											name="9Rnd_45ACP_Mag";
+											ammoLeft=9;
+										};
+									};
+									class uniform
+									{
+										typeName="U_I_CombatUniform";
+										isBackpack=0;
+									};
+									class vest
+									{
+										typeName="V_PlateCarrierIA2_dgtl";
+										isBackpack=0;
+										class MagazineCargo
+										{
+											items=4;
+											class Item0
+											{
+												name="SmokeShell";
+												count=2;
+												ammoLeft=1;
+											};
+											class Item1
+											{
+												name="HandGrenade";
+												count=1;
+												ammoLeft=1;
+											};
+											class Item2
+											{
+												name="30Rnd_65x39_caseless_mag";
+												count=8;
+												ammoLeft=30;
+											};
+											class Item3
+											{
+												name="9Rnd_45ACP_Mag";
+												count=3;
+												ammoLeft=9;
+											};
+										};
+									};
+									map="ItemMap";
+									compass="ItemCompass";
+									watch="ItemWatch";
+									goggles="G_Bandanna_blk";
+									headgear="H_HelmetB_light_black";
+								};
+							};
+							id=2664;
+							type="I_soldier_F";
+						};
+						class Item7
+						{
+							dataType="Object";
+							class PositionInfo
+							{
+								position[]={9630.4814,137.47234,20731.297};
+								angles[]={0,0.59690261,0};
+							};
+							side="Independent";
+							class Attributes
+							{
+								rank="CORPORAL";
+								init="(group this) setGroupIDGlobal [""Alpha""];";
+								description="Rifleman (AT)";
+								isPlayable=1;
+								class Inventory
+								{
+									class primaryWeapon
+									{
+										name="arifle_MX_Black_F";
+										optics="optic_Aco";
+										class primaryMuzzleMag
+										{
+											name="30Rnd_65x39_caseless_mag";
+											ammoLeft=30;
+										};
+									};
+									class handgun
+									{
+										name="hgun_ACPC2_F";
+										class primaryMuzzleMag
+										{
+											name="9Rnd_45ACP_Mag";
+											ammoLeft=9;
+										};
+									};
+									class uniform
+									{
+										typeName="U_I_CombatUniform";
+										isBackpack=0;
+									};
+									class vest
+									{
+										typeName="V_PlateCarrierIA2_dgtl";
+										isBackpack=0;
+										class MagazineCargo
+										{
+											items=5;
+											class Item0
+											{
+												name="SmokeShell";
+												count=2;
+												ammoLeft=1;
+											};
+											class Item1
+											{
+												name="HandGrenade";
+												count=1;
+												ammoLeft=1;
+											};
+											class Item2
+											{
+												name="30Rnd_65x39_caseless_mag";
+												count=2;
+												ammoLeft=30;
+											};
+											class Item3
+											{
+												name="9Rnd_45ACP_Mag";
+												count=1;
+												ammoLeft=9;
+											};
+											class Item4
+											{
+												name="30Rnd_65x39_caseless_mag_Tracer";
+												count=4;
+												ammoLeft=30;
+											};
+										};
+									};
+									map="ItemMap";
+									compass="ItemCompass";
+									watch="ItemWatch";
+									goggles="G_Bandanna_blk";
+									headgear="H_HelmetB_light_black";
+								};
+							};
+							id=2697;
+							type="I_Soldier_LAT_F";
 						};
 					};
 					class Attributes
 					{
 					};
-					id=2129;
+					id=2649;
 					class CustomAttributes
 					{
 						class Attribute0
@@ -9910,8 +10663,8 @@ class Mission
 							dataType="Object";
 							class PositionInfo
 							{
-								position[]={9635.749,137.38074,20728.156};
-								angles[]={0,0.43252748,0};
+								position[]={9635.1123,137.3705,20729.297};
+								angles[]={0,0.31241393,0};
 							};
 							side="Independent";
 							flags=3;
@@ -9919,10 +10672,81 @@ class Mission
 							{
 								rank="SERGEANT";
 								init="(group this) setGroupIDGlobal [""Bravo""];";
-								description="Bravo lead";
+								description="Bravo Lead";
 								isPlayable=1;
+								class Inventory
+								{
+									class primaryWeapon
+									{
+										name="arifle_MX_Black_F";
+										optics="optic_Aco";
+										class primaryMuzzleMag
+										{
+											name="30Rnd_65x39_caseless_mag";
+											ammoLeft=30;
+										};
+									};
+									class handgun
+									{
+										name="hgun_ACPC2_F";
+										class primaryMuzzleMag
+										{
+											name="9Rnd_45ACP_Mag";
+											ammoLeft=9;
+										};
+									};
+									class uniform
+									{
+										typeName="U_I_CombatUniform";
+										isBackpack=0;
+									};
+									class vest
+									{
+										typeName="V_PlateCarrierIA2_dgtl";
+										isBackpack=0;
+										class MagazineCargo
+										{
+											items=5;
+											class Item0
+											{
+												name="SmokeShell";
+												count=2;
+												ammoLeft=1;
+											};
+											class Item1
+											{
+												name="HandGrenade";
+												count=1;
+												ammoLeft=1;
+											};
+											class Item2
+											{
+												name="30Rnd_65x39_caseless_mag";
+												count=3;
+												ammoLeft=30;
+											};
+											class Item3
+											{
+												name="9Rnd_45ACP_Mag";
+												count=2;
+												ammoLeft=9;
+											};
+											class Item4
+											{
+												name="30Rnd_65x39_caseless_mag_Tracer";
+												count=4;
+												ammoLeft=30;
+											};
+										};
+									};
+									map="ItemMap";
+									compass="ItemCompass";
+									watch="ItemWatch";
+									goggles="G_Bandanna_blk";
+									headgear="H_HelmetB_light_black";
+								};
 							};
-							id=2146;
+							id=2676;
 							type="I_Soldier_SL_F";
 						};
 						class Item1
@@ -9930,8 +10754,8 @@ class Mission
 							dataType="Object";
 							class PositionInfo
 							{
-								position[]={9636.5859,137.39604,20726.584};
-								angles[]={0,0.36191148,0};
+								position[]={9635.7441,137.37889,20728.234};
+								angles[]={0,0.25303784,0};
 							};
 							side="Independent";
 							flags=1;
@@ -9941,8 +10765,78 @@ class Mission
 								init="(group this) setGroupIDGlobal [""Bravo""];";
 								description="Combat Life Saver";
 								isPlayable=1;
+								class Inventory
+								{
+									class primaryWeapon
+									{
+										name="arifle_MX_Black_F";
+										optics="optic_Aco";
+										class primaryMuzzleMag
+										{
+											name="30Rnd_65x39_caseless_mag";
+											ammoLeft=30;
+										};
+									};
+									class handgun
+									{
+										name="hgun_ACPC2_F";
+										class primaryMuzzleMag
+										{
+											name="9Rnd_45ACP_Mag";
+											ammoLeft=9;
+										};
+									};
+									class uniform
+									{
+										typeName="U_I_CombatUniform";
+										isBackpack=0;
+									};
+									class vest
+									{
+										typeName="V_PlateCarrierIA2_dgtl";
+										isBackpack=0;
+										class MagazineCargo
+										{
+											items=4;
+											class Item0
+											{
+												name="SmokeShell";
+												count=2;
+												ammoLeft=1;
+											};
+											class Item1
+											{
+												name="HandGrenade";
+												count=1;
+												ammoLeft=1;
+											};
+											class Item2
+											{
+												name="30Rnd_65x39_caseless_mag";
+												count=7;
+												ammoLeft=30;
+											};
+											class Item3
+											{
+												name="9Rnd_45ACP_Mag";
+												count=2;
+												ammoLeft=9;
+											};
+										};
+									};
+									class backpack
+									{
+										typeName="B_AssaultPack_dgtl";
+										isBackpack=1;
+									};
+									map="ItemMap";
+									compass="ItemCompass";
+									watch="ItemWatch";
+									goggles="G_Bandanna_blk";
+									headgear="H_HelmetB_light_black";
+								};
 							};
-							id=2148;
+							id=2678;
 							type="I_medic_F";
 						};
 						class Item2
@@ -9950,8 +10844,8 @@ class Mission
 							dataType="Object";
 							class PositionInfo
 							{
-								position[]={9637.8945,137.37143,20725.957};
-								angles[]={0,0.38142425,0};
+								position[]={9636.6934,137.36411,20727.721};
+								angles[]={0,0.27972391,0};
 							};
 							side="Independent";
 							flags=1;
@@ -9959,19 +10853,95 @@ class Mission
 							{
 								rank="CORPORAL";
 								init="(group this) setGroupIDGlobal [""Bravo""];";
-								description="Marksman";
+								description="Machinegunner";
 								isPlayable=1;
+								class Inventory
+								{
+									class primaryWeapon
+									{
+										name="arifle_MX_Black_F";
+										optics="optic_Aco";
+										class primaryMuzzleMag
+										{
+											name="30Rnd_65x39_caseless_mag";
+											ammoLeft=30;
+										};
+									};
+									class handgun
+									{
+										name="hgun_ACPC2_F";
+										class primaryMuzzleMag
+										{
+											name="9Rnd_45ACP_Mag";
+											ammoLeft=9;
+										};
+									};
+									class uniform
+									{
+										typeName="U_I_CombatUniform";
+										isBackpack=0;
+									};
+									class vest
+									{
+										typeName="V_PlateCarrierIA2_dgtl";
+										isBackpack=0;
+										class MagazineCargo
+										{
+											items=5;
+											class Item0
+											{
+												name="SmokeShell";
+												count=2;
+												ammoLeft=1;
+											};
+											class Item1
+											{
+												name="HandGrenade";
+												count=1;
+												ammoLeft=1;
+											};
+											class Item2
+											{
+												name="30Rnd_65x39_caseless_mag";
+												count=3;
+												ammoLeft=30;
+											};
+											class Item3
+											{
+												name="9Rnd_45ACP_Mag";
+												count=2;
+												ammoLeft=9;
+											};
+											class Item4
+											{
+												name="30Rnd_65x39_caseless_mag_Tracer";
+												count=4;
+												ammoLeft=30;
+											};
+										};
+									};
+									class backpack
+									{
+										typeName="I_HMG_01_weapon_F";
+										isBackpack=1;
+									};
+									map="ItemMap";
+									compass="ItemCompass";
+									watch="ItemWatch";
+									goggles="G_Bandanna_blk";
+									headgear="H_HelmetB_light_black";
+								};
 							};
-							id=2150;
-							type="I_Soldier_M_F";
+							id=2680;
+							type="I_support_MG_F";
 						};
 						class Item3
 						{
 							dataType="Object";
 							class PositionInfo
 							{
-								position[]={9639.2686,137.32352,20725.969};
-								angles[]={0,0.14943509,0};
+								position[]={9637.4424,137.35565,20727.186};
+								angles[]={0,0.34831536,0};
 							};
 							side="Independent";
 							flags=1;
@@ -9979,19 +10949,95 @@ class Mission
 							{
 								rank="CORPORAL";
 								init="(group this) setGroupIDGlobal [""Bravo""];";
-								description="Rifleman";
+								description="Asst. Machinegunner";
 								isPlayable=1;
+								class Inventory
+								{
+									class primaryWeapon
+									{
+										name="arifle_MX_Black_F";
+										optics="optic_Aco";
+										class primaryMuzzleMag
+										{
+											name="30Rnd_65x39_caseless_mag";
+											ammoLeft=30;
+										};
+									};
+									class handgun
+									{
+										name="hgun_ACPC2_F";
+										class primaryMuzzleMag
+										{
+											name="9Rnd_45ACP_Mag";
+											ammoLeft=9;
+										};
+									};
+									class uniform
+									{
+										typeName="U_I_CombatUniform";
+										isBackpack=0;
+									};
+									class vest
+									{
+										typeName="V_PlateCarrierIA2_dgtl";
+										isBackpack=0;
+										class MagazineCargo
+										{
+											items=5;
+											class Item0
+											{
+												name="SmokeShell";
+												count=2;
+												ammoLeft=1;
+											};
+											class Item1
+											{
+												name="HandGrenade";
+												count=1;
+												ammoLeft=1;
+											};
+											class Item2
+											{
+												name="30Rnd_65x39_caseless_mag";
+												count=3;
+												ammoLeft=30;
+											};
+											class Item3
+											{
+												name="9Rnd_45ACP_Mag";
+												count=2;
+												ammoLeft=9;
+											};
+											class Item4
+											{
+												name="30Rnd_65x39_caseless_mag_Tracer";
+												count=4;
+												ammoLeft=30;
+											};
+										};
+									};
+									class backpack
+									{
+										typeName="I_HMG_01_support_F";
+										isBackpack=1;
+									};
+									map="ItemMap";
+									compass="ItemCompass";
+									watch="ItemWatch";
+									goggles="G_Bandanna_blk";
+									headgear="H_HelmetB_light_black";
+								};
 							};
-							id=2152;
-							type="I_soldier_F";
+							id=2682;
+							type="I_support_AMG_F";
 						};
 						class Item4
 						{
 							dataType="Object";
 							class PositionInfo
 							{
-								position[]={9640.7598,137.26688,20727.416};
-								angles[]={0,6.1943479,0};
+								position[]={9638.5938,137.30794,20727.506};
+								angles[]={0,0.1755452,0};
 							};
 							side="Independent";
 							flags=1;
@@ -10001,8 +11047,79 @@ class Mission
 								init="(group this) setGroupIDGlobal [""Bravo""];";
 								description="Team Leader";
 								isPlayable=1;
+								class Inventory
+								{
+									class primaryWeapon
+									{
+										name="arifle_MX_Black_F";
+										optics="optic_Aco";
+										class primaryMuzzleMag
+										{
+											name="30Rnd_65x39_caseless_mag";
+											ammoLeft=30;
+										};
+									};
+									class handgun
+									{
+										name="hgun_ACPC2_F";
+										class primaryMuzzleMag
+										{
+											name="9Rnd_45ACP_Mag";
+											ammoLeft=9;
+										};
+									};
+									class uniform
+									{
+										typeName="U_I_CombatUniform";
+										isBackpack=0;
+									};
+									class vest
+									{
+										typeName="V_PlateCarrierIA2_dgtl";
+										isBackpack=0;
+										class MagazineCargo
+										{
+											items=5;
+											class Item0
+											{
+												name="SmokeShell";
+												count=2;
+												ammoLeft=1;
+											};
+											class Item1
+											{
+												name="HandGrenade";
+												count=1;
+												ammoLeft=1;
+											};
+											class Item2
+											{
+												name="30Rnd_65x39_caseless_mag";
+												count=3;
+												ammoLeft=30;
+											};
+											class Item3
+											{
+												name="9Rnd_45ACP_Mag";
+												count=2;
+												ammoLeft=9;
+											};
+											class Item4
+											{
+												name="30Rnd_65x39_caseless_mag_Tracer";
+												count=4;
+												ammoLeft=30;
+											};
+										};
+									};
+									map="ItemMap";
+									compass="ItemCompass";
+									watch="ItemWatch";
+									goggles="G_Bandanna_blk";
+									headgear="H_HelmetB_light_black";
+								};
 							};
-							id=2154;
+							id=2684;
 							type="I_Soldier_TL_F";
 						};
 						class Item5
@@ -10010,8 +11127,8 @@ class Mission
 							dataType="Object";
 							class PositionInfo
 							{
-								position[]={9642.0986,137.25183,20725.977};
-								angles[]={0,6.0936251,0};
+								position[]={9640.4814,137.27084,20726.387};
+								angles[]={0,0.12648401,0};
 							};
 							side="Independent";
 							flags=1;
@@ -10019,55 +11136,284 @@ class Mission
 							{
 								rank="CORPORAL";
 								init="(group this) setGroupIDGlobal [""Bravo""];";
-								description="Autorifleman";
+								description="Rifleman (AT)";
 								isPlayable=1;
+								class Inventory
+								{
+									class primaryWeapon
+									{
+										name="arifle_MX_Black_F";
+										optics="optic_Aco";
+										class primaryMuzzleMag
+										{
+											name="30Rnd_65x39_caseless_mag";
+											ammoLeft=30;
+										};
+									};
+									class handgun
+									{
+										name="hgun_ACPC2_F";
+										class primaryMuzzleMag
+										{
+											name="9Rnd_45ACP_Mag";
+											ammoLeft=9;
+										};
+									};
+									class uniform
+									{
+										typeName="U_I_CombatUniform";
+										isBackpack=0;
+									};
+									class vest
+									{
+										typeName="V_PlateCarrierIA2_dgtl";
+										isBackpack=0;
+										class MagazineCargo
+										{
+											items=5;
+											class Item0
+											{
+												name="SmokeShell";
+												count=2;
+												ammoLeft=1;
+											};
+											class Item1
+											{
+												name="HandGrenade";
+												count=1;
+												ammoLeft=1;
+											};
+											class Item2
+											{
+												name="30Rnd_65x39_caseless_mag";
+												count=3;
+												ammoLeft=30;
+											};
+											class Item3
+											{
+												name="9Rnd_45ACP_Mag";
+												count=2;
+												ammoLeft=9;
+											};
+											class Item4
+											{
+												name="30Rnd_65x39_caseless_mag_Tracer";
+												count=4;
+												ammoLeft=30;
+											};
+										};
+									};
+									map="ItemMap";
+									compass="ItemCompass";
+									watch="ItemWatch";
+									goggles="G_Bandanna_blk";
+									headgear="H_HelmetB_light_black";
+								};
 							};
-							id=2156;
-							type="I_Soldier_AR_F";
+							id=2688;
+							type="I_Soldier_LAT_F";
 						};
 						class Item6
 						{
 							dataType="Object";
 							class PositionInfo
 							{
-								position[]={9643.5146,137.27547,20726.016};
-								angles[]={6.2578607,6.1944356,0.016004669};
+								position[]={9641.4971,137.25246,20726.383};
+								angles[]={0,0.079639375,0};
 							};
 							side="Independent";
+							flags=1;
 							class Attributes
 							{
 								rank="CORPORAL";
 								init="(group this) setGroupIDGlobal [""Bravo""];";
-								description="Defusal Specialist";
+								description="Rifleman (AT)";
 								isPlayable=1;
+								class Inventory
+								{
+									class primaryWeapon
+									{
+										name="arifle_MX_Black_F";
+										optics="optic_Aco";
+										class primaryMuzzleMag
+										{
+											name="30Rnd_65x39_caseless_mag";
+											ammoLeft=30;
+										};
+									};
+									class handgun
+									{
+										name="hgun_ACPC2_F";
+										class primaryMuzzleMag
+										{
+											name="9Rnd_45ACP_Mag";
+											ammoLeft=9;
+										};
+									};
+									class uniform
+									{
+										typeName="U_I_CombatUniform";
+										isBackpack=0;
+									};
+									class vest
+									{
+										typeName="V_PlateCarrierIA2_dgtl";
+										isBackpack=0;
+										class MagazineCargo
+										{
+											items=5;
+											class Item0
+											{
+												name="SmokeShell";
+												count=2;
+												ammoLeft=1;
+											};
+											class Item1
+											{
+												name="HandGrenade";
+												count=1;
+												ammoLeft=1;
+											};
+											class Item2
+											{
+												name="30Rnd_65x39_caseless_mag";
+												count=3;
+												ammoLeft=30;
+											};
+											class Item3
+											{
+												name="9Rnd_45ACP_Mag";
+												count=2;
+												ammoLeft=9;
+											};
+											class Item4
+											{
+												name="30Rnd_65x39_caseless_mag_Tracer";
+												count=4;
+												ammoLeft=30;
+											};
+										};
+									};
+									map="ItemMap";
+									compass="ItemCompass";
+									watch="ItemWatch";
+									goggles="G_Bandanna_blk";
+									headgear="H_HelmetB_light_black";
+								};
 							};
-							id=2534;
-							type="I_Soldier_exp_F";
+							id=2690;
+							type="I_Soldier_LAT_F";
 						};
 						class Item7
 						{
 							dataType="Object";
 							class PositionInfo
 							{
-								position[]={9644.6777,137.31575,20726.871};
-								angles[]={0,6.0993671,0};
+								position[]={9639.4385,137.3006,20726.641};
+								angles[]={0,0.085172072,0};
 							};
 							side="Independent";
 							class Attributes
 							{
 								rank="CORPORAL";
 								init="(group this) setGroupIDGlobal [""Bravo""];";
-								description="Rifleman";
+								description="Autorifleman";
 								isPlayable=1;
+								class Inventory
+								{
+									class primaryWeapon
+									{
+										name="LMG_Zafir_F";
+										optics="optic_Aco";
+										class primaryMuzzleMag
+										{
+											name="150Rnd_762x54_Box";
+											ammoLeft=150;
+										};
+									};
+									class handgun
+									{
+										name="hgun_ACPC2_F";
+										class primaryMuzzleMag
+										{
+											name="9Rnd_45ACP_Mag";
+											ammoLeft=9;
+										};
+									};
+									class uniform
+									{
+										typeName="U_I_CombatUniform";
+										isBackpack=0;
+									};
+									class vest
+									{
+										typeName="V_PlateCarrierIA2_dgtl";
+										isBackpack=0;
+										class MagazineCargo
+										{
+											items=4;
+											class Item0
+											{
+												name="SmokeShell";
+												count=2;
+												ammoLeft=1;
+											};
+											class Item1
+											{
+												name="HandGrenade";
+												count=1;
+												ammoLeft=1;
+											};
+											class Item2
+											{
+												name="9Rnd_45ACP_Mag";
+												count=2;
+												ammoLeft=9;
+											};
+											class Item3
+											{
+												name="150Rnd_762x54_Box_Tracer";
+												count=1;
+												ammoLeft=150;
+											};
+										};
+									};
+									class backpack
+									{
+										typeName="B_AssaultPack_dgtl";
+										isBackpack=1;
+										class MagazineCargo
+										{
+											items=2;
+											class Item0
+											{
+												name="150Rnd_762x54_Box_Tracer";
+												count=1;
+												ammoLeft=150;
+											};
+											class Item1
+											{
+												name="150Rnd_762x54_Box";
+												count=1;
+												ammoLeft=150;
+											};
+										};
+									};
+									map="ItemMap";
+									compass="ItemCompass";
+									watch="ItemWatch";
+									goggles="G_Bandanna_blk";
+									headgear="H_HelmetB_light_black";
+								};
 							};
-							id=2536;
-							type="I_soldier_F";
+							id=2696;
+							type="I_Soldier_AR_F";
 						};
 					};
 					class Attributes
 					{
 					};
-					id=2145;
+					id=2675;
 					class CustomAttributes
 					{
 						class Attribute0
@@ -10095,7 +11441,7 @@ class Mission
 			};
 			id=2335;
 		};
-		class Item94
+		class Item93
 		{
 			dataType="Group";
 			side="Independent";
@@ -10190,7 +11536,7 @@ class Mission
 				nAttributes=1;
 			};
 		};
-		class Item95
+		class Item94
 		{
 			dataType="Layer";
 			name="Helicopters";
@@ -11268,7 +12614,7 @@ class Mission
 						class Item3
 						{
 							dataType="Marker";
-							position[]={10959.04,94.824501,19157.752};
+							position[]={13304.173,32.776951,19928.18};
 							name="helo_loiter";
 							type="Empty";
 							id=2359;
@@ -11335,7 +12681,7 @@ class Mission
 			};
 			id=2351;
 		};
-		class Item96
+		class Item95
 		{
 			dataType="Layer";
 			name="Guards Big";
@@ -11814,7 +13160,7 @@ class Mission
 			};
 			id=2516;
 		};
-		class Item97
+		class Item96
 		{
 			dataType="Object";
 			class PositionInfo
@@ -11829,7 +13175,7 @@ class Mission
 			id=2611;
 			type="B_G_Offroad_01_F";
 		};
-		class Item98
+		class Item97
 		{
 			dataType="Trigger";
 			position[]={9620.8408,136.30414,20752.178};
@@ -11846,7 +13192,7 @@ class Mission
 			id=2616;
 			type="EmptyDetector";
 		};
-		class Item99
+		class Item98
 		{
 			dataType="Trigger";
 			position[]={9627.2832,136.19691,20752.273};
@@ -11863,7 +13209,7 @@ class Mission
 			id=2617;
 			type="EmptyDetector";
 		};
-		class Item100
+		class Item99
 		{
 			dataType="Object";
 			class PositionInfo
@@ -11877,6 +13223,319 @@ class Mission
 			};
 			id=2621;
 			type="B_G_Offroad_01_armed_F";
+		};
+		class Item100
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={12908.46,48.350479,19684.164};
+				angles[]={0,5.0413113,6.259192};
+			};
+			side="Independent";
+			flags=2;
+			class Attributes
+			{
+				name="arty";
+			};
+			id=2636;
+			type="B_MBT_01_arty_F";
+		};
+		class Item101
+		{
+			dataType="Group";
+			side="Independent";
+			class Entities
+			{
+				items=3;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={12908.425,45.459229,19684.131};
+						angles[]={0,5.0413113,6.259192};
+					};
+					side="Independent";
+					flags=3;
+					class Attributes
+					{
+						name="artyC";
+					};
+					id=2643;
+					type="I_crew_F";
+				};
+				class Item1
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={12908.425,45.459229,19684.131};
+						angles[]={0,5.0413113,6.259192};
+					};
+					side="Independent";
+					flags=1;
+					class Attributes
+					{
+						name="artyD";
+					};
+					id=2641;
+					type="I_crew_F";
+				};
+				class Item2
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={12908.425,45.459229,19684.131};
+						angles[]={0,5.0413113,6.259192};
+					};
+					side="Independent";
+					flags=1;
+					class Attributes
+					{
+						name="artyG";
+					};
+					id=2645;
+					type="I_crew_F";
+				};
+			};
+			class Attributes
+			{
+			};
+			class CrewLinks
+			{
+				class LinkIDProvider
+				{
+					nextID=3;
+				};
+				class Links
+				{
+					items=3;
+					class Item0
+					{
+						linkID=0;
+						item0=2643;
+						item1=2636;
+						class CustomData
+						{
+							role=2;
+						};
+					};
+					class Item1
+					{
+						linkID=1;
+						item0=2641;
+						item1=2636;
+						class CustomData
+						{
+							role=1;
+						};
+					};
+					class Item2
+					{
+						linkID=2;
+						item0=2645;
+						item1=2636;
+						class CustomData
+						{
+							role=2;
+						};
+					};
+				};
+			};
+			id=2642;
+		};
+		class Item102
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={12913.238,46.145763,19701.203};
+				angles[]={6.2418756,5.0413113,6.2099838};
+			};
+			id=2646;
+			type="SupportProvider_Artillery";
+		};
+		class Item103
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={12907.595,46.189926,19721.686};
+				angles[]={0.0013372133,5.0413113,0.055941612};
+			};
+			name="arty_module";
+			id=2647;
+			type="SupportRequester";
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="SupportRequester_BIS_SUPP_limit_UAV";
+					expression="_this setVariable ['BIS_SUPP_limit_UAV',_value,true];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"STRING"
+								};
+							};
+							value="-1";
+						};
+					};
+				};
+				class Attribute1
+				{
+					property="SupportRequester_BIS_SUPP_custom_HQ";
+					expression="_this setVariable ['BIS_SUPP_custom_HQ',_value,true];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"STRING"
+								};
+							};
+							value="thanatos";
+						};
+					};
+				};
+				class Attribute2
+				{
+					property="SupportRequester_BIS_SUPP_limit_Transport";
+					expression="_this setVariable ['BIS_SUPP_limit_Transport',_value,true];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"STRING"
+								};
+							};
+							value="-1";
+						};
+					};
+				};
+				class Attribute3
+				{
+					property="SupportRequester_BIS_SUPP_limit_Drop";
+					expression="_this setVariable ['BIS_SUPP_limit_Drop',_value,true];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"STRING"
+								};
+							};
+							value="-1";
+						};
+					};
+				};
+				class Attribute4
+				{
+					property="SupportRequester_BIS_SUPP_limit_CAS_Heli";
+					expression="_this setVariable ['BIS_SUPP_limit_CAS_Heli',_value,true];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"STRING"
+								};
+							};
+							value="-1";
+						};
+					};
+				};
+				class Attribute5
+				{
+					property="SupportRequester_BIS_SUPP_limit_Artillery";
+					expression="_this setVariable ['BIS_SUPP_limit_Artillery',_value,true];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"STRING"
+								};
+							};
+							value="1";
+						};
+					};
+				};
+				class Attribute6
+				{
+					property="SupportRequester_BIS_SUPP_limit_CAS_Bombing";
+					expression="_this setVariable ['BIS_SUPP_limit_CAS_Bombing',_value,true];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"STRING"
+								};
+							};
+							value="-1";
+						};
+					};
+				};
+				nAttributes=7;
+			};
+		};
+	};
+	class Connections
+	{
+		class LinkIDProvider
+		{
+			nextID=2;
+		};
+		class Links
+		{
+			items=2;
+			class Item0
+			{
+				linkID=0;
+				item0=2646;
+				item1=2643;
+				class CustomData
+				{
+					type="Sync";
+				};
+			};
+			class Item1
+			{
+				linkID=1;
+				item0=2646;
+				item1=2647;
+				class CustomData
+				{
+					type="Sync";
+				};
+			};
 		};
 	};
 };

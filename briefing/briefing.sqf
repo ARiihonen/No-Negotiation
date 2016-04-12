@@ -16,5 +16,6 @@ if ( "task_force_radio" call caran_checkMod || "acre_" call caran_checkMod ) the
 	["Diary", "Signal", _signal] call caran_briefingFile;
 };
 _intel = ["Diary", "Intel", "Intel.txt"] call caran_briefingFile;
+_execution = ["Diary", "Execution", "Execution.txt"] call caran_briefingFile;
 _mission = ["Diary", "Mission", "Mission.txt"] call caran_briefingFile;
 _situation = ["Diary", "Situation", "Situation.txt"] call caran_briefingFile;

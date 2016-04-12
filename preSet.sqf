@@ -7,12 +7,36 @@ This script is defined as a pre-init function in description.ext, meaning it run
 if (isServer) then {
 	//Randomizing unit presence variables using caran_randInt and caran_presenceArray
 	_players = playersNumber resistance;
-	low_players = if (_players <= 12) then { true; } else { false; }; //define the cutoff for AI reinforcements
-	publicVariable "low_players";
 	
 	//define minimum and maximum standard enemy team members based on player amounts
-	_minTeam = 4;
-	_maxTeam = if (low_players) then { 4; } else { 6; };
+	_minTeam = 2;
+	_maxTeam = 2;
+	_minPatrols = 1;
+	_maxPatrols = 1;
+	
+	if (players >= 10) then {
+		if (players <= 14) then {
+			_minTeam = 2;
+			_maxTeam = 3;
+			_minPatrols = 2;
+			_maxPatrols = 2;
+		} else { if ( players <= 16 ) then {
+		
+			_minTeam = 3;
+			_maxTeam = 3;
+			_minPatrols = 2;
+			_maxPatrols = 3;
+			
+			} else { if ( players <= 20 ) then {
+				_minTeam = 3;
+				_maxTeam = 4;
+				_minPatrols = 3;
+				_maxPatrols = 4;
+
+				};
+			};
+		};
+	};
 	
 	//same for hostage guard teams
 	_minGuardTeam = 3;
@@ -42,7 +66,7 @@ if (isServer) then {
 	guards_shack = [10, _minGuardTeam, _maxGuardTeam] call caran_presenceArray;
 	guards_big = [10, _minGuardTeam, _maxGuardTeam] call caran_presenceArray;
 
-	patrols = [10, 3, 4] call caran_presenceArray;
+	patrols = [10, _minPatrols, _maxPatrols] call caran_presenceArray;
 	
 	//randomising hostage positions
 	hostages_atc = [7, 1, 2] call caran_presenceArray;

@@ -7,7 +7,7 @@ author="Sniper Party / Caranfin";
 //overviewPicture = "LoadScreen.paa"; This does not work on dedicated servers. Arma is bad.
 
 //Loading screen texts and picture for loading the mission
-OnLoadName = "CO06-22 - No Negotiation";
+OnLoadName = "CO06-21 - No Negotiation";
 OnLoadMission = "You do not negotiate with terrorists";
 loadscreen = "pictures\loadscreen.paa";
 
@@ -27,7 +27,7 @@ enableDebugConsole = 0; //enable debug console for the admin
 class Header {
 	gameType = COOP;
 	minPlayers = 6;
-	maxPlayers = 22;
+	maxPlayers = 21;
 };
 
 //Mission ending states, used via BIS_fnc_endMission from end.sqf

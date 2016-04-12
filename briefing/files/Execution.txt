@@ -1,0 +1,3 @@
+To give the enemy as little time to react and kill the hostages as possible, make your way as close to <marker name = 'marker_targetarea'>the airfield</marker> as possible before opening fire, but remember that the hostages' survival is secondary to the success of your primary objective.
+<br /> <br />
+We have an artillery unit on standby, ready to provide a smoke screen if needed. Heavy support is not available, as we must make at least a token effort to get the hostages out of there alive.

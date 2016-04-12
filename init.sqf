@@ -21,6 +21,15 @@ if ( "ace_" call caran_checkMod ) then {
 if (!isServer || (isServer && !isDedicated) ) then {
 	//put in briefings
 	briefing = [] execVM "briefing\briefing.sqf";
+	
+	//make player able to call in the support smoke artillery if he is the leader of his group
+	trigger_dead = createTrigger ['EmptyDetector', [0,0,0], false];
+	trigger_dead setTriggerActivation ['NONE', 'PRESENT', false];
+	trigger_dead setTriggerStatements [
+		"player == leader group player",
+		"arty_module synchronizeObjectsAdd [player];",
+		""
+	];
 };
 
 execVM "logic\hcHandle.sqf";

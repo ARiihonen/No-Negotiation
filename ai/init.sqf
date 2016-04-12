@@ -34,16 +34,3 @@ _vehicles = [helo1, helo2];
 		
 	} forEach _units;
 } forEach _vehicles;
-
-//Define mission-specific AI handling functions
-noneg_clearCheck = {
-	if (trigger_area getVariable ["clear", false]) then {
-		area_cleared = true;
-	} else {
-		area_cleared = false;
-	};
-	
-	if (!isServer) then {
-		publicVariableServer "route_cleared";
-	};
-};
