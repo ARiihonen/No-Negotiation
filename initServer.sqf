@@ -7,8 +7,8 @@ This runs on the server machine after objects have initialised in the map. Anyth
 [missionNamespace, -1] call BIS_fnc_respawnTickets;
 
 //add tasks
-["KillTerrorists", true, ["Show them how we deal with terrorists - neutralise all hostiles.", "Neutralise Terrorists", ""], nil, "CREATED", 1, false, true] call BIS_fnc_setTask;
-["RescueHostages", true, ["Rescuing as many hostages as possible would be a nice PR bonus.", "Rescue (OPTIONAL)", ""], nil, "CREATED", 0, false, true] call BIS_fnc_setTask;
+[true, "KillTerrorists", ["Show them how we deal with terrorists - neutralise all hostiles.", "Neutralise Terrorists", ""], nil, "ASSIGNED", 1, false, "kill", false] call BIS_fnc_taskCreate;
+[true, "RescueHostages", ["Rescuing as many hostages as possible would be a nice PR bonus.", "Rescue (OPTIONAL)", ""], nil, "CREATED", 0, false, "heal", false] call BIS_fnc_taskCreate;
 
 //handle hostiles reacting when players fire shots
 {
@@ -22,7 +22,7 @@ arty addMagazineTurret ["6Rnd_155mm_Mo_smoke", [0]];
 missionEnding = {
 	_endState = "";
 			
-	if (area_cleared && canMove helo1 && canMove helo2) then {
+	if (trigger_area getVariable ["clear", false] && canMove helo1 && canMove helo2) then {
 		["KillTerrorists", "SUCCEEDED", false] call BIS_fnc_taskSetState;
 		_endState = "Win";
 	} else {
@@ -30,7 +30,11 @@ missionEnding = {
 		_endState = "Lose";
 	};
 	
-	_hostageCounter = { alive _x } count hostages;
+	if ( { alive _x } count hostages > 0 ) then {
+		["RescueHostages", "SUCCEEDED", false] call BIS_fnc_taskSetState;
+	} else {
+		["RescueHostages", "CANCELED", false] call BIS_fnc_taskSetState;
+	};
 	
 	//Runs end.sqf on everyone. For varying mission end states, calculate the correct one here and send it as an argument for end.sqf
 	[_endState,"end.sqf"] remoteExec ["BIS_fnc_execVM",0,false];

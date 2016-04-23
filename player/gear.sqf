@@ -24,13 +24,12 @@ if ( "ace_" call caran_checkMod ) then {
 
 //ACRE Radio if active, otherwise normal radio
 if ( "acre_" call caran_checkMod ) then {
+	player unlinkItem "ItemRadio";
 	player addItemToUniform "ACRE_PRC343";
 
 	if (player == leader group player) then {
 		player addItemToUniform "ACRE_PRC152";
 	};
-} else {
-	player linkItem "ItemRadio";
 };
 
 //GPS. ACE microDAGR if active, vanilla GPS if not, also add maptools
